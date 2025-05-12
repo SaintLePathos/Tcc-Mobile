@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Prj_Tardirgrado</string>
+    <string name="app_name">PrjMobileTCC</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="exemplotexto">Este é um texto <font color='#FF0000'>vermelho</font>. E mais texto e correeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
