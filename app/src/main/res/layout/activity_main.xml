@@ -6,19 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="56dp"
-        android:layout_marginBottom="56dp">
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/contFrmnts"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/fundo"
-            android:orientation="vertical" />
-    </ScrollView>
+            android:background="@color/fundo" />
+    </LinearLayout>
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

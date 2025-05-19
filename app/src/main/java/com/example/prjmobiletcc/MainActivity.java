@@ -2,6 +2,7 @@ package com.example.prjmobiletcc;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.support.v7.app.AppCompatActivity;
@@ -37,8 +38,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 // Trocar o fragmento dentro do container
                 if (selectedFragment != null) {
+                    //getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.contFrmnts, selectedFragment)
+                            .replace(R.id.contFrmnts, selectedFragment).addToBackStack(null)
                             .commit();
                 }
                 return true;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         // Definir um fragmento inicial (Home)
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contFrmnts, new CasaFragment())
+                    .replace(R.id.contFrmnts, new UsuariopedidoFragment())
                     .commit();
         }
     }

@@ -11,4 +11,6 @@
     <color name="verdedinheiro">#006D07</color>
     <color name="vermelhodinheiro">#FE0000</color>
     <color name="fundo">#E9E7F4</color>
+    <color name="black50">#80000000</color>
+    <color name="black25">#40000000</color>
 </resources>

@@ -1,12 +1,387 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top"
     android:orientation="vertical"
-    android:paddingLeft="10dp"
-    android:paddingTop="5dp"
-    android:paddingRight="10dp"
-    android:paddingBottom="5dp"
-    tools:context=".ProdutosFragment" />
+
+    tools:context=".ProdutosFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Filtros"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borda10"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/lytOrdem"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left|center_vertical"
+                            android:text="Ordem"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/iconDOWNordem"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/iconUPordem"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lytFltordem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:visibility="visible">
+
+                        <RadioGroup
+                            android:id="@+id/rdoGrpordem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible">
+
+                            <RadioButton
+                                android:id="@+id/rdoRelevancia"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Relevancia"
+                                android:textSize="14sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdoNovidades"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Novidades"
+                                android:textSize="14sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdoMaiorpreco"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Maior Preço"
+                                android:textSize="14sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdoMenorpreco"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Menor Preço"
+                                android:textSize="14sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdoAz"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="A a Z"
+                                android:textSize="14sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdoZa"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Z a A" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lytTamanhos"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left|center_vertical"
+                            android:text="Tamanhos(X)"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/iconDOWNtamanho"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/iconUPtamanho"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lytFlttamanho"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:visibility="visible">
+
+                        <CheckBox
+                            android:id="@+id/ckbtamanho"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+
+                        <CheckBox
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+
+                        <CheckBox
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+
+                        <CheckBox
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+
+                        <CheckBox
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lytCores"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left|center_vertical"
+                            android:text="Cores(X)"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/iconDOWNcor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/iconUPcor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lytFltcores"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:visibility="gone">
+
+                        <CheckBox
+
+                            android:id="@+id/ckbcores"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+
+                        <CheckBox
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+
+                        <CheckBox
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+
+                        <CheckBox
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+
+                        <CheckBox
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lytTecidos"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left|center_vertical"
+                            android:text="Tecidos(X)"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/iconDOWNtecido"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/iconUPtecido"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lytFlttecidos"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:visibility="gone">
+
+                        <CheckBox
+                            android:id="@+id/ckbtecido"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+
+                        <CheckBox
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+
+                        <CheckBox
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+
+                        <CheckBox
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+
+                        <CheckBox
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CheckBox" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:backgroundTint="@color/cinzatema"
+                    android:text="Filtrar"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
