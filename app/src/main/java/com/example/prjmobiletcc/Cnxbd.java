@@ -23,7 +23,7 @@ public class Cnxbd {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-            Toast.makeText(ctx.getApplicationContext(), "Drive correto", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(ctx.getApplicationContext(), "Drive correto", Toast.LENGTH_SHORT).show();
         }
         catch(Exception ex){
             Toast.makeText(ctx.getApplicationContext(), "Drive não correto", Toast.LENGTH_SHORT).show();
@@ -33,7 +33,7 @@ public class Cnxbd {
             String url = "jdbc:jtds:sqlserver://"+iP+":1433;databaseName=Loja_Ecommerce";
             con = DriverManager.getConnection(url, "sa", "1234");
             stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            Toast.makeText(ctx.getApplicationContext(), "conectado", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(ctx.getApplicationContext(), "conectado", Toast.LENGTH_SHORT).show();
         }
         catch(SQLException ex){
             //Toast.makeText(ctx.getApplicationContext(), "Erro de conexão", Toast.LENGTH_SHORT).show();

@@ -81,8 +81,6 @@ public class Criacntnr extends LinearLayout {
         nome.setText(nomeP);
         valor.setText("R$ "+ valorP +" a VISTA");
         valordes.setText("de R$ "+valordesP+" por:");
-        Valores idPr = new Valores();
-        idPr.idProduto = idP;
     }
     private int dpToPx(int dp) {
         return (int) TypedValue.applyDimension(

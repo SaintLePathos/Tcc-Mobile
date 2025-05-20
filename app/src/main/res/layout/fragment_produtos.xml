@@ -2,10 +2,11 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
 
+    android:orientation="vertical"
     tools:context=".ProdutosFragment">
 
     <ScrollView
@@ -23,9 +24,9 @@
             android:paddingBottom="5dp">
 
             <TextView
-                android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:layout_marginTop="10dp"
                 android:text="Filtros"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -52,11 +53,12 @@
 
                         <TextView
 
+                            android:id="@+id/txvOrdem"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="left|center_vertical"
-                            android:text="Ordem"
+                            android:text="Ordem (Relevancia)"
                             android:textSize="16sp" />
 
                         <ImageView
@@ -83,7 +85,7 @@
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="10dp"
-                        android:visibility="visible">
+                        android:visibility="gone">
 
                         <RadioGroup
                             android:id="@+id/rdoGrpordem"
@@ -95,6 +97,8 @@
                                 android:id="@+id/rdoRelevancia"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:buttonTint="@color/cinzatema"
+                                android:checked="true"
                                 android:text="Relevancia"
                                 android:textSize="14sp" />
 
@@ -102,13 +106,23 @@
                                 android:id="@+id/rdoNovidades"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:buttonTint="@color/cinzatema"
                                 android:text="Novidades"
+                                android:textSize="14sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdoDesconto"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/cinzatema"
+                                android:text="Desconto"
                                 android:textSize="14sp" />
 
                             <RadioButton
                                 android:id="@+id/rdoMaiorpreco"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:buttonTint="@color/cinzatema"
                                 android:text="Maior Preço"
                                 android:textSize="14sp" />
 
@@ -116,6 +130,7 @@
                                 android:id="@+id/rdoMenorpreco"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:buttonTint="@color/cinzatema"
                                 android:text="Menor Preço"
                                 android:textSize="14sp" />
 
@@ -123,6 +138,7 @@
                                 android:id="@+id/rdoAz"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:buttonTint="@color/cinzatema"
                                 android:text="A a Z"
                                 android:textSize="14sp" />
 
@@ -130,6 +146,7 @@
                                 android:id="@+id/rdoZa"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:buttonTint="@color/cinzatema"
                                 android:text="Z a A" />
                         </RadioGroup>
                     </LinearLayout>
@@ -149,11 +166,12 @@
 
                         <TextView
 
+                            android:id="@+id/txvTamanho"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="left|center_vertical"
-                            android:text="Tamanhos(X)"
+                            android:text="Tamanhos (0)"
                             android:textSize="16sp" />
 
                         <ImageView
@@ -179,7 +197,7 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:padding="10dp"
-                        android:visibility="visible">
+                        android:visibility="gone">
 
                         <CheckBox
                             android:id="@+id/ckbtamanho"
@@ -197,6 +215,8 @@
 
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="@color/cinzatema"
+                            android:checked="false"
                             android:text="CheckBox" />
 
                         <CheckBox
@@ -228,11 +248,12 @@
 
                         <TextView
 
+                            android:id="@+id/txvCor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="left|center_vertical"
-                            android:text="Cores(X)"
+                            android:text="Cores (0)"
                             android:textSize="16sp" />
 
                         <ImageView
@@ -307,11 +328,12 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/txvTecido"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="left|center_vertical"
-                            android:text="Tecidos(X)"
+                            android:text="Tecidos (0)"
                             android:textSize="16sp" />
 
                         <ImageView
@@ -373,7 +395,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btnFiltrar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
@@ -381,6 +403,21 @@
                     android:text="Filtrar"
                     android:textColor="@color/white" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:text="Produtos"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/lytProdutoscntnrprodutos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
         </LinearLayout>
     </ScrollView>
 

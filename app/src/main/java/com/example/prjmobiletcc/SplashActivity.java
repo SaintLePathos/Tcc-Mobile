@@ -7,7 +7,9 @@ import android.media.Image;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.sql.SQLException;
 
@@ -24,34 +26,7 @@ public class SplashActivity extends AppCompatActivity {
         bounceAnim.setRepeatMode(ValueAnimator.REVERSE); // Faz o movimento de ida e volta
         bounceAnim.setRepeatCount(ValueAnimator.INFINITE); // Repete infinitamente
         bounceAnim.start();
-
-        Cnxbd bdcnx = new Cnxbd();
-
-        bdcnx.entBanco(this);
-        try{
-            bdcnx.RS = bdcnx.stmt.executeQuery("SELECT * FROM Produto");
-            while (bdcnx.RS.next()){
-                String id_Produto,
-                        id_Fornecedor,
-                        nome_Produto,
-                        img_Produto,
-                        descricao_Produto,
-                        valor_Produto,
-                        peso_Produto,
-                        desconto_Produto,
-                        tamanho_Produto,
-                        quantidade_Produto,
-                        tecido_Produto,
-                        cor_Produto;
-                id_Produto = bdcnx.RS.getString("Nome_Produto");
-
-                System.out.println("Registro :" + id_Produto);
-            }
-        }catch (SQLException ex){
-            ex.printStackTrace();
-        }
-
-
+        tstconexao();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -60,5 +35,13 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         }, 2000); // 1000 = 1 segundos
+    }
+    private void tstconexao(){
+        try {
+            Cnxbd bdcnx = new Cnxbd();
+            bdcnx.entBanco(this);
+        }catch (Exception ex){
+            Log.e("DB_ERROR", "Erro ao conectar: " + ex.getMessage());
+        }
     }
 }

@@ -40,7 +40,7 @@ public class CasaFragment extends Fragment {
         return ver;
     }
     private void criacontainer(){
-        // Criar e adicionar a view do produto
+        //Criar e adicionar a view do produto
         Criacntnr produtoView = new Criacntnr(requireContext());
         produtoView.valores("product-1.png","Produto 1 exemplo","40,00","20,20","22");
         produtoView.setOnClickListener(view -> trocatelafrag());
