@@ -20,9 +20,12 @@ public class CarregaImagem extends AsyncTask<String, Void, Bitmap> {
     protected Bitmap doInBackground(String... urls) {
         String urlString = urls[0];
         Bitmap bitmap = null;
-
+        if (urlString == null || urlString.isEmpty()) {
+            //System.out.println("URL inválida!");
+            return null;
+        }
         try {
-            System.out.println("Carregando imagem da URL: " + urlString); // Debug
+            //System.out.println("Carregando imagem da URL: " + urlString); // Debug
 
             URL url = new URL(urlString);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -32,14 +35,14 @@ public class CarregaImagem extends AsyncTask<String, Void, Bitmap> {
             connection.connect();
 
             int responseCode = connection.getResponseCode();
-            System.out.println("Código de resposta HTTP: " + responseCode); // Debug
+            //ystem.out.println("Código de resposta HTTP: " + responseCode); // Debug
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 InputStream input = connection.getInputStream();
                 bitmap = BitmapFactory.decodeStream(input);
 
                 if (bitmap != null) {
-                    System.out.println("Imagem carregada com sucesso: " + bitmap.getWidth() + "x" + bitmap.getHeight());
+                    //System.out.println("Imagem carregada com sucesso: " + bitmap.getWidth() + "x" + bitmap.getHeight());
                 } else {
                     System.out.println("Erro ao converter stream para Bitmap.");
                 }
@@ -59,7 +62,7 @@ public class CarregaImagem extends AsyncTask<String, Void, Bitmap> {
         if (bitmap != null) {
             imgv.setImageBitmap(bitmap);
         } else {
-            Toast.makeText(imgv.getContext(), "Erro ao carregar imagem", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(imgv.getContext(), "Erro ao carregar imagem", Toast.LENGTH_SHORT).show();
         }
     }
 }

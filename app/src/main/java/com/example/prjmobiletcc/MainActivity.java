@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = new CarrinhoFragment();
                         break;
                     case R.id.navigation_conta:
-                        selectedFragment = new ContaFragment();
+                        selectedFragment = new LoginFragment();
                         break;
                 }
                 // Trocar o fragmento dentro do container
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         // Definir um fragmento inicial (Home)
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contFrmnts, new UsuariopedidoFragment())
+                    .replace(R.id.contFrmnts, new CasaFragment())
                     .commit();
         }
     }

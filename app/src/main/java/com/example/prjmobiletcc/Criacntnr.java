@@ -1,6 +1,7 @@
 package com.example.prjmobiletcc;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 public class Criacntnr extends LinearLayout {
 
     Cnxbd bdcnx = new Cnxbd();
-    String url = "http://"+bdcnx.iP+"/a1/git%20hub/Tcc-Web/assets/img/";
+    Valores vlrs = new Valores();
     private TextView nome, valordes, valor, txt1;
     private LinearLayout cntnrTxt;
     private ImageView img;
@@ -42,12 +43,12 @@ public class Criacntnr extends LinearLayout {
         cntnrTxt.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
 
         nome  = new TextView(context);
-        nome.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dpToPx(50)));
+        nome.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dpToPx(60)));
         nome.setGravity(Gravity.CENTER_VERTICAL);
         nome.setText(R.string.exemplotexto);
         nome.setEllipsize(TextUtils.TruncateAt.END);
         nome.setMaxLines(3);
-        nome.setTextSize(12);
+        nome.setTextSize(14);
 
         valordes = new TextView(context);
         valordes.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT,1));
@@ -60,6 +61,8 @@ public class Criacntnr extends LinearLayout {
         valor.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,1));
         valor.setGravity(Gravity.CENTER_VERTICAL);
         valor.setText("R$ 200,00 a VISTA");
+        valor.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        valor.setTextColor(ContextCompat.getColor(context, R.color.verdedinheiro));
         valor.setTextSize(16);
 
         txt1 = new TextView(context);
@@ -76,14 +79,17 @@ public class Criacntnr extends LinearLayout {
         addView(img);
         addView(cntnrTxt);
     }
-    public void valores(String imagemP, String nomeP, String valordesP, String valorP, String idP){
-        new CarregaImagem(img).execute(url+imagemP);
+    public void valores(String imagemP, String nomeP, String valordesP, String valorP){
+        int quantidadedevezesnocartao = 10;
+        String valordesconto = vlrs.calculades(valorP,valordesP);
+        new CarregaImagem(img).execute(bdcnx.urlimgsrv+imagemP);
         nome.setText(nomeP);
-        valor.setText("R$ "+ valorP +" a VISTA");
-        valordes.setText("de R$ "+valordesP+" por:");
+        valor.setText("R$ "+ valorP.replace(".",",") +" a vista NO PIX");
+        valordes.setText("de R$ "+valordesconto+" por:");
+        String valorvzacartao = vlrs.calculacartao(valorP,quantidadedevezesnocartao);
+        txt1.setText("em até " + quantidadedevezesnocartao + "x de " + valorvzacartao + " sem juros no cartão");
     }
     private int dpToPx(int dp) {
-        return (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
     }
 }

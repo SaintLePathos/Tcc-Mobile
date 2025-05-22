@@ -7,12 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class DescricaoDetalhesFragment extends BottomSheetDialogFragment {
+    View ver;
+    TextView txtvdescricao;
+    Valores vlrs = new Valores();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaBundle){
-        View view = inflater.inflate(R.layout.fragment_detalhes_descricao, container, false);
-        return view;
+        ver = inflater.inflate(R.layout.fragment_detalhes_descricao, container, false);
+        txtvdescricao = ver.findViewById(R.id.txtvDescricao);
+        txtvdescricao.setText(vlrs.descricaoProduto);
+        return ver;
     }
 }

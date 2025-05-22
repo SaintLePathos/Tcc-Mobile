@@ -41,7 +41,15 @@
                 android:id="@+id/textView17"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:text="Produtos" />
+                android:text="Produtos vistos Recentemente"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:text="Populares"
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:id="@+id/layoutContcasa"
@@ -59,7 +67,8 @@
                     android:paddingLeft="20dp"
                     android:paddingTop="10dp"
                     android:paddingRight="20dp"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/cntnrProdutoimagem"

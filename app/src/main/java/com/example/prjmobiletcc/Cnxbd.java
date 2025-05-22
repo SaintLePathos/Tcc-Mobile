@@ -12,6 +12,7 @@ import java.sql.Statement;
 
 public class Cnxbd {
     String iP = "10.0.0.170";
+    String urlimgsrv = "http://"+iP+"/a1/git%20hub/Tcc-Web/assets/img/";
     ResultSet RS;
     java.sql.Statement stmt;
     Connection con;

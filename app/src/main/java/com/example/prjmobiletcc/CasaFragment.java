@@ -23,7 +23,7 @@ public class CasaFragment extends Fragment {
     View ver;
     ImageView imgv;
     Cnxbd bdcnx = new Cnxbd();
-    String url = "http://"+bdcnx.iP+"/a1/git%20hub/Tcc-Web/assets/img/mdl1home.jpg";
+    String url = "http://"+bdcnx.iP+"/a1/git%20hub/Tcc-Web/assets/img/slide-1.png";
     LinearLayout conteinerProduto, contprodutos;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,14 +35,13 @@ public class CasaFragment extends Fragment {
 
 
         conteinerProduto.setOnClickListener(view -> trocatelafrag());
-        criacontainer();
         crrgImg();
         return ver;
     }
     private void criacontainer(){
         //Criar e adicionar a view do produto
         Criacntnr produtoView = new Criacntnr(requireContext());
-        produtoView.valores("product-1.png","Produto 1 exemplo","40,00","20,20","22");
+        produtoView.valores("product-1.png","Produto 1 exemplo","40,00","20,20");
         produtoView.setOnClickListener(view -> trocatelafrag());
         contprodutos.addView(produtoView);
     }

@@ -3,6 +3,7 @@ package com.example.prjmobiletcc;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,18 +22,25 @@ import java.util.List;
 
 public class ProdutosFragment extends Fragment {
     View ver;
-    LinearLayout lytordem,lyttamanho,lytcor,lyttecido,fltsordem,fltstamanho,fltscor,fltstecido,lytcntnrProdutos;
+    LinearLayout lytordem,lyttamanho,lytcor,lyttecido,
+            lytcntnrtamanho,lytcntnrcor,lytcntnrtecido,
+            fltsordem,fltstamanho,fltscor,fltstecido,lytcntnrProdutos,
+            fltstamanhoquantidade,fltscorquantidade,fltstecidoquantidade;
     ImageView icupordem,icuptamanho,icupcor,icuptecido,icdownordem,icdowntamanho,icdowncor,icdowntecido;
     RadioGroup rdogpo;
     Button btnfiltrar;
     TextView txvordem,txvtamanho,txvcor,txvtecido;
-    Cnxbd bdcnx = new Cnxbd();
-    Valores vlrs = new Valores();
+
     int numregistros, contadorTamanhos = 0,contadorCores = 0,contadorTecidos = 0;
     String rdoresul;
+
+    Cnxbd bdcnx = new Cnxbd();
+    Valores vlrs = new Valores();
+
     List<String> listatamanho = new ArrayList<>();
     List<String> listacor = new ArrayList<>();
     List<String> listatecido = new ArrayList<>();
+
     public ProdutosFragment() {
         // Required empty public constructor
     }
@@ -45,10 +52,19 @@ public class ProdutosFragment extends Fragment {
         lyttamanho = ver.findViewById(R.id.lytTamanhos);
         lytcor = ver.findViewById(R.id.lytCores);
         lyttecido = ver.findViewById(R.id.lytTecidos);
+
         fltsordem = ver.findViewById(R.id.lytFltordem);
+        lytcntnrtamanho = ver.findViewById(R.id.lytTamanhocntnr);
+        lytcntnrcor = ver.findViewById(R.id.lytCorescntnr);
+        lytcntnrtecido = ver.findViewById(R.id.lytTecidoscntnr);
+
         fltstamanho = ver.findViewById(R.id.lytFlttamanho);
+        fltstamanhoquantidade = ver.findViewById(R.id.lytFlttamanhoquant);
         fltscor = ver.findViewById(R.id.lytFltcores);
+        fltscorquantidade = ver.findViewById(R.id.lytFltcoresquant);
         fltstecido = ver.findViewById(R.id.lytFlttecidos);
+        fltstecidoquantidade = ver.findViewById(R.id.lytFlttecidosquant);
+
         icupordem = ver.findViewById(R.id.iconUPordem);
         icuptamanho = ver.findViewById(R.id.iconUPtamanho);
         icupcor = ver.findViewById(R.id.iconUPcor);
@@ -67,9 +83,9 @@ public class ProdutosFragment extends Fragment {
 
 
         lytordem.setOnClickListener(v->abrirefechar(fltsordem,icupordem,icdownordem));
-        lyttamanho.setOnClickListener(v->abrirefechar(fltstamanho,icuptamanho,icdowntamanho));
-        lytcor.setOnClickListener(v->abrirefechar(fltscor,icupcor,icdowncor));
-        lyttecido.setOnClickListener(v->abrirefechar(fltstecido,icuptecido,icdowntecido));
+        lyttamanho.setOnClickListener(v->abrirefechar(lytcntnrtamanho,icuptamanho,icdowntamanho));
+        lytcor.setOnClickListener(v->abrirefechar(lytcntnrcor,icupcor,icdowncor));
+        lyttecido.setOnClickListener(v->abrirefechar(lytcntnrtecido,icuptecido,icdowntecido));
         btnfiltrar.setOnClickListener(v->criacomandosql());
         rdogpo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -78,35 +94,56 @@ public class ProdutosFragment extends Fragment {
             }
         });
 
-        carregafiltros("Tamanho_Produto", fltstamanho);
-        carregafiltros("Cor_Produto", fltscor);
-        carregafiltros("Tecido_Produto", fltstecido);
-
-        carregamentoprodutos("SELECT * FROM Produto");
-
+        carregafiltros("Tamanho_Produto", fltstamanho,fltstamanhoquantidade);
+        carregafiltros("Cor_Produto", fltscor,fltscorquantidade);
+        carregafiltros("Tecido_Produto", fltstecido,fltstecidoquantidade);
+        criacomandosql();
         return ver;
     }
+    private void fecharfechar(LinearLayout lyt, ImageView icUP, ImageView icDOWN){
+        lyt.setVisibility(View.GONE);
+        icUP.setVisibility(View.GONE);
+        icDOWN.setVisibility(View.VISIBLE);
+    }
     private void criacomandosql(){
+        listatamanho.clear();
+        listacor.clear();
+        listatecido.clear();
         pegavlrCkb(fltstamanho, listatamanho);
         pegavlrCkb(fltscor, listacor);
         pegavlrCkb(fltstecido, listatecido);
         pegavlrRdo();
+        fecharfechar(fltsordem,icupordem,icdownordem);
+        fecharfechar(lytcntnrtamanho,icuptamanho,icdowntamanho);
+        fecharfechar(lytcntnrcor,icupcor,icdowncor);
+        fecharfechar(lytcntnrtecido,icuptecido,icdowntecido);
         String sql = "SELECT * FROM Produto ORDER BY";
         if (!listatamanho.isEmpty() || !listacor.isEmpty() || !listatecido.isEmpty()){
-            sql += " CASE WHEN 1=1";
+            sql += " CASE";
+            String prioridade1 = "",prioridade2 = "";
             if (!listatecido.isEmpty()) {
-                sql += " AND Tecido_Produto IN (" + formatarListaParaSQL(listatecido) + ")";
+                prioridade1 += " AND Tecido_Produto IN (" + formatarListaParaSQL(listatecido) + ")";
+                prioridade2 += " OR Tecido_Produto IN (" + formatarListaParaSQL(listatecido) + ")";
             }
             if (!listatamanho.isEmpty()) {
-                sql += " AND Tamanho_Produto IN (" + formatarListaParaSQL(listatamanho) + ")";
+                prioridade1 += " AND Tamanho_Produto IN (" + formatarListaParaSQL(listatamanho) + ")";
+                prioridade2 += " OR Tamanho_Produto IN (" + formatarListaParaSQL(listatamanho) + ")";
             }
             if (!listacor.isEmpty()) {
-                sql += " AND Cor_Produto IN (" + formatarListaParaSQL(listacor) + ")";
+                prioridade1 += " AND Cor_Produto IN (" + formatarListaParaSQL(listacor) + ")";
+                prioridade2 += " OR Cor_Produto IN (" + formatarListaParaSQL(listacor) + ")";
             }
-            sql += " THEN 1 ELSE 2 END, " + rdoresul + ";";
+            if (!prioridade1.isEmpty()) {
+                sql += " WHEN 1=1" + prioridade1 + " THEN 1";
+            }
+            if (!prioridade2.isEmpty()) {
+                sql += " WHEN " + prioridade2.substring(4) + " THEN 2";
+            }
+            sql += " ELSE 3 END, " + rdoresul + ";";
         }else {
             sql += rdoresul+";";
         }
+        System.out.println(sql);
         carregamentoprodutos(sql);
     }
     private String formatarListaParaSQL(List<String> lista) {
@@ -124,7 +161,7 @@ public class ProdutosFragment extends Fragment {
         if (selectedId != -1) { // Verifica se algum botão está marcado
             RadioButton selectedRadioButton = ver.findViewById(selectedId);
             String selectedText = selectedRadioButton.getText().toString(); // Obtém o texto do botão
-            txvordem.setText("Ordem ("+selectedText+")");
+            txvordem.setText("Ordem (" + selectedText + ") ");
             switch (selectedText){
                 case "Novidades":
                     rdoresul = " Id_Produto DESC";
@@ -166,7 +203,6 @@ public class ProdutosFragment extends Fragment {
             bdcnx.RS.last();
             numregistros = bdcnx.RS.getRow();
             bdcnx.RS.beforeFirst();
-            System.out.println("Total de registros: " + numregistros);
             while(bdcnx.RS.next()){
                 String id_Produto,
                         nome_Produto,
@@ -185,9 +221,7 @@ public class ProdutosFragment extends Fragment {
                 cor_Produto = bdcnx.RS.getString("Cor_Produto");
                 desconto_Produto = bdcnx.RS.getString("Desconto_Produto");
                 valor_Produto = bdcnx.RS.getString("Valor_Produto");
-                String valordesconto = vlrs.calculades(valor_Produto,desconto_Produto);
-                System.out.println(nome_Produto+"");
-                cntnrProduto.valores(img_Produto,nome_Produto+","+tamanho_Produto+","+cor_Produto+","+tecido_Produto,valordesconto,valor_Produto,id_Produto);
+                cntnrProduto.valores(img_Produto,nome_Produto+", "+tamanho_Produto+", "+cor_Produto+", "+tecido_Produto,desconto_Produto,valor_Produto);
                 cntnrProduto.setOnClickListener(v->trocateladetalhes(id_Produto));
                 lytcntnrProdutos.addView(cntnrProduto);
             }
@@ -195,19 +229,28 @@ public class ProdutosFragment extends Fragment {
             ex.printStackTrace();
         }
     }
-    private void carregafiltros(String atributoTbl, LinearLayout lyt){
+    private void carregafiltros(String atributoTbl, LinearLayout lyt1, LinearLayout lyt2){
         try{
-            lyt.removeAllViews();
+            lyt1.removeAllViews();
+            lyt2.removeAllViews();
             bdcnx.entBanco(requireContext());
-            bdcnx.RS = bdcnx.stmt.executeQuery("SELECT "+atributoTbl+", COUNT(*) AS Quantidade_Registros FROM Produto GROUP BY "+atributoTbl+" ORDER BY Quantidade_Registros DESC;");
+            bdcnx.RS = bdcnx.stmt.executeQuery("SELECT "+atributoTbl+", COUNT(*) AS Quantidade_Registros FROM Produto GROUP BY "+atributoTbl+" ORDER BY "+atributoTbl+" ASC;");
             while(bdcnx.RS.next()){
-                String txt1;
+                String txt1,txt2,txt3;
                 txt1 = bdcnx.RS.getString(atributoTbl);
+                txt2 = bdcnx.RS.getString("Quantidade_Registros");
+                if(txt2.equals("1")){txt3 = " Disponivel";}else{txt3 = " Disponiveis";}
                 CheckBox ckb = new CheckBox(requireContext());
+                ckb.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, vlrs.converterintdp(40,requireContext())));
                 ckb.setText(txt1);
                 ckb.setButtonTintList(getResources().getColorStateList(R.color.cinzatema));
                 ckb.setOnCheckedChangeListener((buttonView, isChecked)->ckcvalores(isChecked,atributoTbl));
-                lyt.addView(ckb);
+                lyt1.addView(ckb);
+                TextView txtv = new TextView(requireContext());
+                txtv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,vlrs.converterintdp(40,requireContext())));
+                txtv.setGravity(Gravity.CENTER);
+                txtv.setText("("+txt2+txt3+")");
+                lyt2.addView(txtv);
             }
         }catch (SQLException ex){
             ex.printStackTrace();

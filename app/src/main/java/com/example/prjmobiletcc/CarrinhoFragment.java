@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class CarrinhoFragment extends Fragment {
 
@@ -14,19 +15,25 @@ public class CarrinhoFragment extends Fragment {
         // Required empty public constructor
     }
     View ver;
+    LinearLayout lytcntnrcarrinnho;
+    Button btnCheckendereco;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         ver = inflater.inflate(R.layout.fragment_carrinho, container, false);
 
-        Button btnCheckendereco = ver.findViewById(R.id.btnCkendereco);
-        btnCheckendereco.setOnClickListener(v ->{
-            CheckenderecoFragment ckEndereco = new CheckenderecoFragment();
-            FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
-            mudaFragm.replace(R.id.contFrmnts, ckEndereco);
-            mudaFragm.addToBackStack(null);
-            mudaFragm.commit();
-        });
+        btnCheckendereco = ver.findViewById(R.id.btnCkendereco);
+        lytcntnrcarrinnho = ver.findViewById(R.id.lytCntnrcarrinho);
+        Criacntnrcarrinho criacntnrcarrinho = new Criacntnrcarrinho(requireContext());
+        lytcntnrcarrinnho.removeAllViews();
+        lytcntnrcarrinnho.addView(criacntnrcarrinho);
+        btnCheckendereco.setOnClickListener(v ->trocatelacheckout());
         return ver;
+    }
+    private void trocatelacheckout(){
+        CheckenderecoFragment ckEndereco = new CheckenderecoFragment();
+        FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
+        mudaFragm.replace(R.id.contFrmnts, ckEndereco);
+        mudaFragm.addToBackStack(null);
+        mudaFragm.commit();
     }
 }
