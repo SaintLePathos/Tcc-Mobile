@@ -22,6 +22,7 @@ import java.sql.SQLException;
     Button btnlogar,btnregistrar;
     TextView esqueceusenha;
     Cnxbd bdcnx = new Cnxbd();
+    Guardalogin grdlogin;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ver = inflater.inflate(R.layout.fragment_login, container, false);
@@ -30,9 +31,11 @@ import java.sql.SQLException;
         btnlogar = ver.findViewById(R.id.btnAcessarconta);
         btnregistrar = ver.findViewById(R.id.btnCadastrese);
         esqueceusenha = ver.findViewById(R.id.txtvEscreceusenha);
+        grdlogin = new Guardalogin(requireContext());
 
         btnlogar.setOnClickListener(v->entrar());
 
+        if (grdlogin.loginexpiracao()){mudatela();}
         return ver;
     }
     private void entrar(){
@@ -45,12 +48,10 @@ import java.sql.SQLException;
             System.out.println(sql);
             bdcnx.RS = bdcnx.stmt.executeQuery(sql);
             if (bdcnx.RS.next()){
+                String id = bdcnx.RS.getString("Id_Cliente");
                 Toast.makeText(requireContext(),"Aprovado",Toast.LENGTH_SHORT).show();
-                ContaFragment cntFramg = new ContaFragment();
-                FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
-                mudaFragm.replace(R.id.contFrmnts, cntFramg);
-                mudaFragm.addToBackStack(null);
-                mudaFragm.commit();
+                grdlogin.salvarLogin(id, mail, snh);
+                mudatela();
             }else{
                 System.out.println("loginincorreto");
             }
@@ -58,5 +59,12 @@ import java.sql.SQLException;
             ex.printStackTrace();
             Toast.makeText(requireContext(), "Erro no banco de dados: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
+    }
+    private void mudatela(){
+        ContaFragment cntFramg = new ContaFragment();
+        FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
+        mudaFragm.replace(R.id.contFrmnts, cntFramg);
+        mudaFragm.addToBackStack(null);
+        mudaFragm.commit();
     }
 }

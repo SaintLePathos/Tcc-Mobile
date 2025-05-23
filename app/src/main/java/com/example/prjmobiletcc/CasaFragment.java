@@ -56,6 +56,6 @@ public class CasaFragment extends Fragment {
         mudaFragm.replace(R.id.contFrmnts, detalhesFragm);
         mudaFragm.addToBackStack(null);
         mudaFragm.commit();
-        Toast.makeText(requireContext(), "id e "+vl.idProduto,Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), "id e "+vl.idproduto,Toast.LENGTH_SHORT).show();
     }
 }

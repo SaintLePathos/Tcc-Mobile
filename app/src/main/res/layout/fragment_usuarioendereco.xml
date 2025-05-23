@@ -25,7 +25,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="125dp"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
@@ -37,7 +37,6 @@
             android:text="Meus Endereços" />
 
         <TextView
-            android:id="@+id/textView79"
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:gravity="bottom|left"
@@ -48,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="125dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,9 +59,8 @@
             android:paddingBottom="5dp">
 
             <TextView
-                android:id="@+id/textView82"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:gravity="bottom|left"
                 android:text="Endereço de Entrega Padrão" />
 
@@ -77,55 +75,57 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center">
 
                     <ImageView
-                        android:id="@+id/imageView5"
                         android:layout_width="40dp"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
                         android:src="@drawable/ic_baseline_home_24" />
 
                     <TextView
-                        android:id="@+id/textView61"
+                        android:id="@+id/txtvNomerua"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
                         android:gravity="center_vertical"
-                        android:text="TextView" />
+                        android:text="Rua ,Num" />
 
                     <ImageButton
-                        android:id="@+id/imageButton5"
+                        android:id="@+id/btnMmaisendereco"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:backgroundTint="@android:color/transparent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_baseline_delete_24" />
+                        android:src="@drawable/ic_baseline_more_vert_24" />
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/lytDetalhesenderec"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
-                        android:id="@+id/textView86"
+                        android:id="@+id/txtvDetalhesendereco"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
+                        android:layout_marginBottom="10dp"
                         android:gravity="left|center_vertical"
                         android:text="Rua Exemplo, XX, Bairro \n 00000-000 \n Cidade, UF \n Tel:  (99) 99999-9999" />
 
                     <LinearLayout
+                        android:id="@+id/lytMenosdetalhesenderec"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="left|center_vertical"
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView54"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
@@ -133,7 +133,6 @@
                             android:textColor="@color/black50" />
 
                         <ImageView
-                            android:id="@+id/imageView12"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
@@ -143,13 +142,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/lytMaisdetalhesenderec"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left|center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="visible">
 
                     <TextView
-                        android:id="@+id/textView54"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
@@ -157,7 +157,6 @@
                         android:textColor="@color/black50" />
 
                     <ImageView
-                        android:id="@+id/imageView11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
@@ -176,33 +175,42 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/borda10"
+                android:layout_marginBottom="150dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/lytMaisenderec"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/borda10"
                     android:gravity="left|center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp">
 
                     <TextView
-                        android:id="@+id/textView88"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Mais (X) endereços cadastrados" />
 
                     <ImageView
-                        android:id="@+id/imageView13"
+                        android:id="@+id/icEndDOWN"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                        android:visibility="visible" />
 
                     <ImageView
-                        android:id="@+id/imageView14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/icEndUP"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
@@ -210,102 +218,11 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/lytCntnrenderecos"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="20dp"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left|center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/textView54"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:text="Mais detalhes"
-                            android:textColor="@color/black50" />
-
-                        <ImageView
-                            android:id="@+id/imageView11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
-                            android:tint="@color/black50" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:id="@+id/imageView5"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/ic_baseline_home_24" />
-
-                        <TextView
-                            android:id="@+id/textView61"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:text="TextView" />
-
-                        <ImageButton
-                            android:id="@+id/imageButton5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:backgroundTint="@android:color/transparent"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/ic_baseline_delete_24" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="visible">
-
-                        <TextView
-                            android:id="@+id/textView86"
-                            android:layout_width="match_parent"
-                            android:layout_height="100dp"
-                            android:gravity="left|center_vertical"
-                            android:text="Rua Exemplo, XX, Bairro \n 00000-000 \n Cidade, UF \n Tel:  (99) 99999-9999" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="left|center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/textView54"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical"
-                                android:text="Menos detalhes"
-                                android:textColor="@color/black50" />
-
-                            <ImageView
-                                android:id="@+id/imageView12"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
-                                android:tint="@color/black50" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
+                    android:visibility="gone" />
 
             </LinearLayout>
         </LinearLayout>

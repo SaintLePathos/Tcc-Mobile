@@ -258,13 +258,13 @@ public class ProdutosFragment extends Fragment {
     }
     private void trocateladetalhes(String idproduto){
 
-        vlrs.idProduto = idproduto;
+        vlrs.idproduto = idproduto;
         DetalhesFragment detalhesFragm = new DetalhesFragment();
         FragmentTransaction mudaFramg = requireActivity().getSupportFragmentManager().beginTransaction();
         mudaFramg.replace(R.id.contFrmnts, detalhesFragm);
         mudaFramg.addToBackStack(null);
         mudaFramg.commit();
-        Toast.makeText(requireContext(), vlrs.idProduto, Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), vlrs.idproduto, Toast.LENGTH_SHORT).show();
     }
     private void abrirefechar(LinearLayout lyt, ImageView icUP, ImageView icDOWN){
         lyt.setVisibility(lyt.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);

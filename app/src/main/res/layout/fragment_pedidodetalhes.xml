@@ -20,7 +20,7 @@
             android:text="Detalhes do Pedido" />
 
         <TextView
-            android:id="@+id/textView79"
+            android:id="@+id/txtvDadoslogin"
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:gravity="bottom|left"

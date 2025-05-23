@@ -1,11 +1,13 @@
 package com.example.prjmobiletcc;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.TypedValue;
 
 public class Valores {
 
-    static String idProduto;
+    static String idproduto;
     static String descricaoProduto;
 
     public String calculades(String valorP,String desP){

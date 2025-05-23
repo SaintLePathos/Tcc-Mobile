@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="125dp"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
@@ -17,21 +17,21 @@
             android:layout_width="match_parent"
             android:layout_height="66dp"
             android:gravity="center"
-            android:text="Dados Pessoais" />
+            android:text="Meus Endereços" />
 
         <TextView
-            android:id="@+id/textView79"
             android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:gravity="left|center_vertical"
-            android:text="nome sobrenome \n exemplo@gmail.com " />
+            android:gravity="bottom|left"
+            android:text="Seus dados" />
+
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="125dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,23 +42,154 @@
             android:paddingRight="10dp"
             android:paddingBottom="5dp">
 
-            <TextView
-                android:id="@+id/textView81"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textSize="16sp" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="Nome"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtvClientenome"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bordaplaintxt"
+                    android:ems="10"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="nomecliente"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/bordaplaintxt"
-                android:ems="10"
-                android:hint="Escreva"
-                android:inputType="textPersonName"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="CPF"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtvClientecpf"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bordaplaintxt"
+                    android:ems="10"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="cpfcliente"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="Usuario"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtvClienteusuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bordaplaintxt"
+                    android:ems="10"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="ususariocliente"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="E-mail"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtvClientemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bordaplaintxt"
+                    android:ems="10"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="emailcliente"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="Telefone"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtvClientetelefone"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bordaplaintxt"
+                    android:ems="10"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="telefonecliente"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAlterarDados"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="150dp"
+                android:backgroundTint="@color/cinzatema"
+                android:text="Alterar Dados"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

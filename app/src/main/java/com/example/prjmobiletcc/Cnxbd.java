@@ -11,8 +11,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Cnxbd {
-    String iP = "10.0.0.170";
-    String urlimgsrv = "http://"+iP+"/a1/git%20hub/Tcc-Web/assets/img/";
+    String iP = "10.0.0.170";//ip do servidor usa o ipconfig no prompt e pega o ipv4
+    String localsite = "/a1/git%20hub/Tcc-Web/";//local do site em nosso servido xampp apartir do htdocs
+
+    String urlsite = "http://"+iP+localsite;
+    String urlimgsrv = urlsite + "assets/img/";
     ResultSet RS;
     java.sql.Statement stmt;
     Connection con;

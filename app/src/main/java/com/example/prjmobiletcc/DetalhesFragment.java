@@ -66,7 +66,7 @@ public class DetalhesFragment extends Fragment {
     private void carregamento(){
         try{
             bdcnx.entBanco(requireContext());
-            bdcnx.RS = bdcnx.stmt.executeQuery("SELECT p.*, COUNT(pp.Id_Pedido) AS Quantidade_Total_Produto_Pedido FROM Produto_Pedido pp JOIN Produto p ON pp.Id_Produto = p.Id_Produto WHERE p.Id_Produto = " + vlrs.idProduto + " GROUP BY p.Id_Produto, p.Id_Fornecedor, p.Nome_Produto, p.Img_Produto, p.Descricao_Produto, p.Valor_Produto, p.Desconto_Produto, p.Tamanho_Produto, p.Quantidade_Produto, p.Tecido_Produto, p.Cor_Produto;");
+            bdcnx.RS = bdcnx.stmt.executeQuery("SELECT p.*, COUNT(pp.Id_Pedido) AS Quantidade_Total_Produto_Pedido FROM Produto_Pedido pp JOIN Produto p ON pp.Id_Produto = p.Id_Produto WHERE p.Id_Produto = " + vlrs.idproduto + " GROUP BY p.Id_Produto, p.Id_Fornecedor, p.Nome_Produto, p.Img_Produto, p.Descricao_Produto, p.Valor_Produto, p.Desconto_Produto, p.Tamanho_Produto, p.Quantidade_Produto, p.Tecido_Produto, p.Cor_Produto;");
             while(bdcnx.RS.next()){
                 String id_Produto,
                         nome_Produto,
