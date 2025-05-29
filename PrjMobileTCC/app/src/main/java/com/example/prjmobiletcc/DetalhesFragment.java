@@ -70,8 +70,8 @@ public class DetalhesFragment extends Fragment {
         return ver;
     }
     private void adicionarcar(){
-        //carrinho.removerProduto("12345",  requireContext());
-        carrinho.adicionarOuAtualizarProduto("asdas", 3, requireContext());
+
+        carrinho.adicionarOuAtualizarProduto(vlrs.idproduto.toString(), 1, requireContext());
         carrinho.consultarProdutos(requireContext());
 
     }
@@ -118,6 +118,7 @@ public class DetalhesFragment extends Fragment {
                 if (quantidade_Produto.equals("0")){
                     txtdisponibi.setText("PRODUTO ESGOTADO");
                     txtdisponibi.setTextColor(ContextCompat.getColor(requireContext(), R.color.vermelhodinheiro));
+                    btnadcionanocar.setVisibility(View.GONE);
                 }else{
                     txtdisponibi.setText("PRODUTO DISPONIVEL");
                 }

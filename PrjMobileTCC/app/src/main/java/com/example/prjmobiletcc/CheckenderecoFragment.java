@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class CheckenderecoFragment extends Fragment {
 
@@ -14,21 +15,28 @@ public class CheckenderecoFragment extends Fragment {
         // Required empty public constructor
     }
     View ver;
+    Button btnCheckpagamento;
+    LinearLayout lytcntnrend;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         ver = inflater.inflate(R.layout.fragment_checkendereco, container, false);
+        btnCheckpagamento = ver.findViewById(R.id.btnCkpagamento);
+        lytcntnrend = ver.findViewById(R.id.lytCktendereco);
 
-        Button btnCheckpagamento = ver.findViewById(R.id.btnCkpagamento);
-        btnCheckpagamento.setOnClickListener(v ->{
-            CheckpagamentoFragment fragckpag = new CheckpagamentoFragment();
-            FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
-            mudaFragm.replace(R.id.contFrmnts, fragckpag);
-            mudaFragm.addToBackStack(null);
-            mudaFragm.commit();
-        });
+        btnCheckpagamento.setOnClickListener(v ->mudatela());
+        carregamento();
 
         return ver;
+    }
+    private void carregamento(){
+
+    }
+    private void mudatela(){
+        CheckpagamentoFragment fragckpag = new CheckpagamentoFragment();
+        FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
+        mudaFragm.replace(R.id.contFrmnts, fragckpag);
+        mudaFragm.addToBackStack(null);
+        mudaFragm.commit();
     }
 
 }

@@ -12,6 +12,7 @@ public class Valores {
     public static String dtenviopedido;
     public static String idproduto;
     public static String descricaoProduto;
+    public static String quantidadeproduto;
 
     public String calculades(String valorP,String desP){
         String resultado;

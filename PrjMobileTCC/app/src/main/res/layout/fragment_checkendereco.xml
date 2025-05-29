@@ -82,6 +82,12 @@
                     android:backgroundTint="@color/black25" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/lytCktendereco"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -130,6 +136,14 @@
                         android:text="TextView" />
                 </LinearLayout>
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytCktformaenvio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -171,6 +185,13 @@
                         android:gravity="center_vertical"
                         android:text="TextView" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytCktresumo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -300,6 +321,8 @@
                             android:text="TextView" />
                     </LinearLayout>
                 </LinearLayout>
+
+            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"

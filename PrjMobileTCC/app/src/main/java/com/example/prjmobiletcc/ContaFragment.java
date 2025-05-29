@@ -1,5 +1,7 @@
 package com.example.prjmobiletcc;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -35,9 +37,17 @@ public class ContaFragment extends Fragment {
         btnmeuspedidos.setOnClickListener(v->mudatela(new UsuariopedidoFragment()));
         btntermoscondicoes.setOnClickListener(v->mudatela(new TermosecondicoesdeusoFragment()));
         btnpoliticaspriv.setOnClickListener(v->mudatela(new PoliticaseprivacidadeFragment()));
+
+        btnsobre.setOnClickListener(v->{
+            abrepaginaweb(bdcnx.urlsite);
+        });
         btnsair.setOnClickListener(v->sair());
 
         return ver;
+    }
+    private void abrepaginaweb(String url){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(intent);
     }
     private void sair(){
         grdlogin.limparLogin();
@@ -55,7 +65,12 @@ public class ContaFragment extends Fragment {
                 String user = bdcnx.RS.getString("Usuario_Cliente");
                 String nome = bdcnx.RS.getString("Nome_Cliente");
                 String email = bdcnx.RS.getString("Email_Cliente");
-                txtvusuario.setText("Bem vindo de volta, " + user);
+                if(user != null){
+                    txtvusuario.setText("Bem vindo de volta, " + user);
+                }else{
+                    txtvusuario.setText("Bem vindo de volta ");
+                }
+
                 txtvinfologin.setText(nome + "\n" + email);
             }else {
                 System.out.println("nao achou o id");

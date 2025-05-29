@@ -1,5 +1,7 @@
   package com.example.prjmobiletcc;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -34,31 +36,53 @@ import java.sql.SQLException;
         grdlogin = new Guardalogin(requireContext());
 
         btnlogar.setOnClickListener(v->entrar());
+        btnregistrar.setOnClickListener(v->{
+            abrepaginaweb(bdcnx.urlsite);
+        });
+        esqueceusenha.setOnClickListener(v->{
+            abrepaginaweb(bdcnx.urlsite);
+        });
 
         if (grdlogin.loginexpiracao()){mudatela();}
         return ver;
     }
+      private void abrepaginaweb(String url){
+          Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+          startActivity(intent);
+      }
     private void entrar(){
-
         String mail = email.getText().toString();
         String snh = senha.getText().toString();
-        try{
-            bdcnx.entBanco(requireContext());
-            String sql = "SELECT * FROM Cliente WHERE Email_Cliente = '" + mail + "' AND Senha_Cliente = '" + snh + "'";
-            System.out.println(sql);
-            bdcnx.RS = bdcnx.stmt.executeQuery(sql);
-            if (bdcnx.RS.next()){
-                String id = bdcnx.RS.getString("Id_Cliente");
-                Toast.makeText(requireContext(),"Aprovado",Toast.LENGTH_SHORT).show();
-                grdlogin.salvarLogin(id, mail, snh);
-                mudatela();
-            }else{
-                System.out.println("loginincorreto");
-            }
-        }catch (SQLException ex){
-            ex.printStackTrace();
-            Toast.makeText(requireContext(), "Erro no banco de dados: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+
+        if (mail.isEmpty() || snh.isEmpty()) {
+            Toast.makeText(requireContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        Verificalogin verificalogin = new Verificalogin();
+
+        verificalogin.verificarLogin(mail, snh, new Verificalogin.LoginCallback() {
+            @Override
+            public void onSuccess(boolean isCorrect, String userId, String message) {
+                if (isCorrect) {
+                    Toast.makeText(requireContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
+
+                    // Salvar ID do usuário no sistema
+                    grdlogin.salvarLogin(userId, mail, snh);
+                    System.out.println(userId);
+
+                    // Navegar para próxima tela
+                    mudatela();
+                } else {
+                    Toast.makeText(requireContext(), "Erro: " + message, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(String error) {
+                Toast.makeText(requireContext(), "Erro na conexão: " + error, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     private void mudatela(){
         ContaFragment cntFramg = new ContaFragment();

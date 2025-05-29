@@ -204,23 +204,16 @@ public class ProdutosFragment extends Fragment {
             numregistros = bdcnx.RS.getRow();
             bdcnx.RS.beforeFirst();
             while(bdcnx.RS.next()){
-                String id_Produto,
-                        nome_Produto,
-                        img_Produto,
-                        valor_Produto,
-                        desconto_Produto,
-                        tamanho_Produto,
-                        tecido_Produto,
-                        cor_Produto;
+
                 Criacntnr cntnrProduto = new Criacntnr(requireContext());
-                id_Produto = bdcnx.RS.getString("Id_Produto");
-                img_Produto = bdcnx.RS.getString("Img_Produto");
-                nome_Produto = bdcnx.RS.getString("Nome_Produto");
-                tamanho_Produto = bdcnx.RS.getString("Tamanho_Produto");
-                tecido_Produto = bdcnx.RS.getString("Tecido_Produto");
-                cor_Produto = bdcnx.RS.getString("Cor_Produto");
-                desconto_Produto = bdcnx.RS.getString("Desconto_Produto");
-                valor_Produto = bdcnx.RS.getString("Valor_Produto");
+                String id_Produto = bdcnx.RS.getString("Id_Produto");
+                String img_Produto = bdcnx.RS.getString("Img_Produto");
+                String nome_Produto = bdcnx.RS.getString("Nome_Produto");
+                String tamanho_Produto = bdcnx.RS.getString("Tamanho_Produto");
+                String tecido_Produto = bdcnx.RS.getString("Tecido_Produto");
+                String cor_Produto = bdcnx.RS.getString("Cor_Produto");
+                String desconto_Produto = bdcnx.RS.getString("Desconto_Produto");
+                String valor_Produto = bdcnx.RS.getString("Valor_Produto");
                 cntnrProduto.valores(img_Produto,nome_Produto+", "+tamanho_Produto+", "+cor_Produto+", "+tecido_Produto,desconto_Produto,valor_Produto);
                 cntnrProduto.setOnClickListener(v->trocateladetalhes(id_Produto));
                 lytcntnrProdutos.addView(cntnrProduto);
