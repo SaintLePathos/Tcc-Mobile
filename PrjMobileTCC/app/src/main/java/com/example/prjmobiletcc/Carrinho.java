@@ -22,13 +22,10 @@ public class Carrinho {
         }
 
         boolean produtoExiste = false;
-
-        // Percorre a lista de produtos para verificar se já existe
         for (int i = 0; i < jsonArray.length(); i++) {
             try {
                 JSONObject produto = jsonArray.getJSONObject(i);
                 if (produto.getString("id_produto").equals(idProduto)) {
-                    // Atualizar quantidade somando o valor novo
                     int quantidadeAtual = produto.getInt("quantidade");
                     produto.put("quantidade", /*quantidadeAtual +*/ quantidade);
                     produtoExiste = true;
@@ -38,8 +35,6 @@ public class Carrinho {
                 e.printStackTrace();
             }
         }
-
-        // Se o produto não existir, adiciona um novo objeto
         if (!produtoExiste) {
             JSONObject novoProduto = new JSONObject();
             try {
@@ -55,8 +50,18 @@ public class Carrinho {
         editor.putString("carrinho", jsonArray.toString());
         editor.apply();
     }
+    public boolean carrinhoEstaVazio(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("CarrinhoPrefs", Context.MODE_PRIVATE);
+        String jsonCarrinho = sharedPreferences.getString("carrinho", "[]"); // Se não existir, retorna um array vazio
 
-
+        try {
+            JSONArray jsonArray = new JSONArray(jsonCarrinho);
+            return jsonArray.length() == 0; // Se não houver itens, o carrinho está vazio
+        } catch (Exception e) {
+            e.printStackTrace();
+            return true; // Se houver erro, assume-se que está vazio
+        }
+    }
     public void consultarProdutos(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("CarrinhoPrefs", Context.MODE_PRIVATE);
         String jsonCarrinho = sharedPreferences.getString("carrinho", "[]"); // Se não existir, retorna um array vazio
@@ -98,7 +103,7 @@ public class Carrinho {
                     novoJsonArray.put(produto); // Mantém apenas os produtos diferentes do que será removido
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println(e);
             }
         }
 

@@ -12,7 +12,9 @@ public class Valores {
     public static String dtenviopedido;
     public static String idproduto;
     public static String descricaoProduto;
-    public static String quantidadeproduto;
+    public static String frete = "00.00";
+    public static String pagamento = "";
+
 
     public String calculades(String valorP,String desP){
         String resultado;

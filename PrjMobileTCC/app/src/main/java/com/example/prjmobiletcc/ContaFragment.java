@@ -62,14 +62,12 @@ public class ContaFragment extends Fragment {
             bdcnx.RS = bdcnx.stmt.executeQuery(sql);
             if (bdcnx.RS.next()){
                 System.out.println(idcli);
-                String user = bdcnx.RS.getString("Usuario_Cliente");
+
                 String nome = bdcnx.RS.getString("Nome_Cliente");
                 String email = bdcnx.RS.getString("Email_Cliente");
-                if(user != null){
-                    txtvusuario.setText("Bem vindo de volta, " + user);
-                }else{
-                    txtvusuario.setText("Bem vindo de volta ");
-                }
+
+                txtvusuario.setText("Bem-vindo");
+
 
                 txtvinfologin.setText(nome + "\n" + email);
             }else {

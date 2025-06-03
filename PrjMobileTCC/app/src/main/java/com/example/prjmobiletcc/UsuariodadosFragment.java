@@ -52,13 +52,10 @@ public class UsuariodadosFragment extends Fragment {
                 System.out.println(idcli);
                 String cpf = bdcnx.RS.getString("CPF_Cliente");
                 String nome = bdcnx.RS.getString("Nome_Cliente");
-                String usu = bdcnx.RS.getString("Usuario_Cliente");
                 String email = bdcnx.RS.getString("Email_Cliente");
                 String tel = bdcnx.RS.getString("Telefone_Cliente");
-                System.out.println(cpf+nome+usu+email+tel);
                 txtvcpf.setText(cpf);
                 txtvnome.setText(nome);
-                txtvusuario.setText(usu);
                 txtvemail.setText(email);
                 txtvtelefone.setText(tel);
             }else {

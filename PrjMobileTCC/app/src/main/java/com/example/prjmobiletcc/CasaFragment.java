@@ -32,7 +32,7 @@ public class CasaFragment extends Fragment {
         // Inflate the layout for this fragment
         ver = inflater.inflate(R.layout.fragment_casa, container, false);
         imgv = ver.findViewById(R.id.imgvCasa1);
-        conteinerProduto = ver.findViewById(R.id.cntnrProduto);
+        conteinerProduto = ver.findViewById(R.id.layoutContcasa);
         contprodutos = ver.findViewById(R.id.layoutContcasa);
 
         criacontainer();

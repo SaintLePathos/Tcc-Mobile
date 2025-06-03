@@ -219,7 +219,7 @@ public class ProdutosFragment extends Fragment {
                 lytcntnrProdutos.addView(cntnrProduto);
             }
         }catch (SQLException ex){
-            ex.printStackTrace();
+            System.out.println(ex);
         }
     }
     private void carregafiltros(String atributoTbl, LinearLayout lyt1, LinearLayout lyt2){

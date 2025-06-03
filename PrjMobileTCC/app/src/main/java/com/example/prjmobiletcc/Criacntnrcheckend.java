@@ -1,18 +1,23 @@
 package com.example.prjmobiletcc;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.sql.SQLException;
 
 public class Criacntnrcheckend extends LinearLayout {
     public Criacntnrcheckend(Context context){
         super(context);
         init(context);
     }
-
+    TextView txtInferior,txt1,txt2;
     private void init(Context context) {
         // Configuração do layout principal
         this.setLayoutParams(new LinearLayout.LayoutParams(
@@ -57,32 +62,59 @@ public class Criacntnrcheckend extends LinearLayout {
         lytInterno.addView(imgIcon);
 
         // TextViews internos
-        TextView txt1 = new TextView(context);
+        txt1 = new TextView(context);
         LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, dpToPx(40), 1);
         params1.setMargins(dpToPx(10), 0, 0, 0);
         txt1.setLayoutParams(params1);
         txt1.setGravity(Gravity.CENTER_VERTICAL);
-        txt1.setText("TextView");
+        txt1.setText("criado");
         lytInterno.addView(txt1);
 
-        TextView txt2 = new TextView(context);
+        txt2 = new TextView(context);
         txt2.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, dpToPx(40), 1));
         txt2.setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
-        txt2.setText("TextView");
+        txt2.setText("Alterar");
         lytInterno.addView(txt2);
 
         // TextView inferior
-        TextView txtInferior = new TextView(context);
+        txtInferior = new TextView(context);
         txtInferior.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 dpToPx(40)));
         txtInferior.setGravity(Gravity.CENTER_VERTICAL);
         txtInferior.setText("TextView");
         lytEndereco.addView(txtInferior);
-    }
 
+        preenchedados(context);
+    }
+    private void preenchedados(Context context){
+        try {
+            String idendereco;
+            Guardalogin grdlogin = new Guardalogin(context);
+            idendereco = grdlogin.getEnderecopadrao().toString();
+            try {
+                Cnxbd bdcnx = new Cnxbd();
+                bdcnx.entBanco(context);
+                bdcnx.RS = bdcnx.stmt.executeQuery("SELECT * FROM Endereco_Cliente WHERE Id_Endereco_Cliente = " + idendereco);
+                if (bdcnx.RS.next()){
+                    String rua = bdcnx.RS.getString("Rua_Cliente");
+                    String num = bdcnx.RS.getString("Numero_Cliente");
+                    String cep = bdcnx.RS.getString("CEP_Cliente");
+                    txt1.setText(rua + ", " + num);
+                    txtInferior.setText(cep);
+
+                }
+            }catch (SQLException ex){
+                System.out.println("erro na consulta end padrao"+ex);
+            }
+        }catch (Exception e){
+            Toast.makeText(context,"Nenhum endereço definido como padrão", Toast.LENGTH_SHORT).show();
+            txt1.setText("Sem endereço");
+            txtInferior.setText("Endereço padrão não definido");
+        }
+    }
     private int dpToPx(int dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
     }

@@ -34,7 +34,7 @@ public class DetalhesFragment extends Fragment {
             txtvalorvista,txtvalorcartao,txtvalordes,txtpagvista,txtpagcartao,
             txtdesconto,txtvendido,txtestoque;
     Guardalogin grdlogin;
-    Cnxbd bdcnx = new Cnxbd();
+
     Valores vlrs = new Valores();
     Carrinho carrinho = new Carrinho();
     @Override
@@ -70,10 +70,13 @@ public class DetalhesFragment extends Fragment {
         return ver;
     }
     private void adicionarcar(){
-
-        carrinho.adicionarOuAtualizarProduto(vlrs.idproduto.toString(), 1, requireContext());
-        carrinho.consultarProdutos(requireContext());
-
+        try {
+            carrinho.adicionarOuAtualizarProduto(vlrs.idproduto.toString(), 1, requireContext());
+            carrinho.consultarProdutos(requireContext());
+            Toast.makeText(requireContext(),"Produto adicionado ao carrinho",Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            Toast.makeText(requireContext(),"Erro ao adicionar ao carrinho",Toast.LENGTH_SHORT).show();
+        }
     }
     private void verdescricao(){
         carrinho.limparCarrinho(requireContext());
@@ -83,11 +86,17 @@ public class DetalhesFragment extends Fragment {
 
     private void carregamento(){
         try{
+            Cnxbd bdcnx = new Cnxbd();
             bdcnx.entBanco(requireContext());
-            bdcnx.RS = bdcnx.stmt.executeQuery("SELECT p.*, COUNT(pp.Id_Pedido) AS Quantidade_Total_Produto_Pedido FROM Produto_Pedido pp JOIN Produto p ON pp.Id_Produto = p.Id_Produto WHERE p.Id_Produto = " + vlrs.idproduto + " GROUP BY p.Id_Produto, p.Id_Fornecedor, p.Nome_Produto, p.Img_Produto, p.Descricao_Produto, p.Valor_Produto, p.Desconto_Produto, p.Tamanho_Produto, p.Quantidade_Produto, p.Tecido_Produto, p.Cor_Produto;");
-            while(bdcnx.RS.next()){
-                String id_Produto,
-                        nome_Produto,
+            bdcnx.RS = bdcnx.stmt.executeQuery("SELECT p.*, COALESCE(COUNT(pp.Id_Pedido), 0) AS Quantidade_Total_Produto_Pedido " +
+                    "FROM Produto p " +
+                    "LEFT JOIN Produto_Pedido pp ON pp.Id_Produto = p.Id_Produto " +
+                    "WHERE p.Id_Produto = "+vlrs.idproduto+" " +
+                    "GROUP BY p.Id_Produto, p.Id_Fornecedor, p.Nome_Produto, p.Img_Produto, p.Descricao_Produto, " +
+                    "p.Valor_Produto, p.Desconto_Produto, p.Tamanho_Produto, p.Quantidade_Produto, " +
+                    "p.Tecido_Produto, p.Cor_Produto;");
+            if(bdcnx.RS.next()){
+                String nome_Produto,
                         img_Produto,
                         descricao_Produto,
                         valor_Produto,
@@ -97,7 +106,6 @@ public class DetalhesFragment extends Fragment {
                         tecido_Produto,
                         cor_Produto,
                         verda_Produto;
-                id_Produto = bdcnx.RS.getString("Id_Produto");
                 nome_Produto = bdcnx.RS.getString("Nome_Produto");
                 img_Produto = bdcnx.RS.getString("Img_Produto");
                 descricao_Produto = bdcnx.RS.getString("Descricao_Produto");
@@ -135,7 +143,7 @@ public class DetalhesFragment extends Fragment {
                 vlrs.descricaoProduto = descricao_Produto;
             }
         }catch (SQLException ex){
-            ex.printStackTrace();
+            System.out.println(ex);
         }
     }
 

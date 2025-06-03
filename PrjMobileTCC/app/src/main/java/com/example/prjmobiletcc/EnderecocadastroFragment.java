@@ -39,6 +39,7 @@ public class EnderecocadastroFragment extends Fragment {
         return ver;
     }
     private void cadastroendereco(){
+        String idcliente = grdlogin.getId();
         String endcep = cep.getText().toString();
         String endestado = estado.getText().toString();
         String endcidade = cidade.getText().toString();
@@ -46,8 +47,8 @@ public class EnderecocadastroFragment extends Fragment {
         String endrua = rua.getText().toString();
         String endnumero = numero.getText().toString();
         String endcomplemento = complemento.getText().toString();
-        String idcliente = grdlogin.getId();
-        String sql = "INSERT INTO Endereco_Cliente VALUES(" + idcliente + ",'"+endcidade+"','"+endestado+"',"+endnumero+",'"+endrua+"','"+endcep+"','"+endcomplemento+"','"+endbairro+"');";
+
+        String sql = "INSERT INTO Endereco_Cliente VALUES(" + idcliente + ",'"+endcep+"','"+endestado+"','"+endcidade+"','"+endbairro+"','"+endrua+"','"+endnumero+"','"+endcomplemento+"');";
         try {
             Cnxbd bdcnx = new Cnxbd();
             bdcnx.entBanco(requireContext());

@@ -72,7 +72,7 @@ public class UsuariopedidoFragment extends Fragment {
                 criacntnrpedidos.inserirdados(idpedido,datapedido,statuspedido,valortotalpedido);
 
                 criacntnrpedidos.btnRastrearPedido.setOnClickListener(v->abredialog(idpedido,dataenvio));
-                criacntnrpedidos.btnVerPedido.setOnClickListener(v->mudatela(new PedidodetalhesFragment()));
+                criacntnrpedidos.btnVerPedido.setOnClickListener(v->mudatela(new PedidodetalhesFragment(),idpedido));
                 lytcntnrpedido.addView(criacntnrpedidos);
             }
 
@@ -80,7 +80,9 @@ public class UsuariopedidoFragment extends Fragment {
             System.out.println(ex);
         }
     }
-    private void mudatela(Fragment fragment){
+    private void mudatela(Fragment fragment, String idpedid){
+        Valores vlrs = new Valores();
+        vlrs.idpedido = idpedid;
         FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
         mudaFragm.replace(R.id.contFrmnts, fragment);
         mudaFragm.addToBackStack(null);

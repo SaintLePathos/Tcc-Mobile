@@ -2,6 +2,7 @@ package com.example.prjmobiletcc;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -129,9 +130,6 @@ public class Criacntnrcarrinho extends LinearLayout {
 
 
     }
-
-    //quant.setText("10");
-
     public void dadoscarrinho(String id,int quantidade,Context context){
         try {
             Cnxbd bdcnx = new Cnxbd();
@@ -146,13 +144,14 @@ public class Criacntnrcarrinho extends LinearLayout {
                 String quantidade_produto = bdcnx.RS.getString("Quantidade_Produto");
                 Double valor_produto = Double.parseDouble(bdcnx.RS.getString("Valor_Produto").toString());
                 if ("0".equals(quantidade_produto)) {
-                    throw new SQLException("Produto sem estoque");
+                    throw new SQLException("Produto sem estoque para" + nome_Produto);
                 }
                 String valortotal = String.format("%.2f",(valor_produto * quantidade)).replace(".",",");
                 String valorunitario = String.format("%.2f",valor_produto).replace(".",",");
                 preco.setText(quantidade + "x R$" + valorunitario + "\nTotal : R$" + valortotal);
                 nome.setText(nome_Produto + ", " + tamanho_Produto + ", " + cor_Produto + ", " + tecido_Produto);
                 quant.setText(Integer.toString(quantidade));
+                apagar.setOnClickListener(view -> apagarprod(id,context));
                 aumentar.setOnClickListener(view -> aumentar(id,quantidade_produto,context));
                 diminuir.setOnClickListener(view -> diminuir(id,context));
                 new CarregaImagem(imgv).execute(bdcnx.urlimgsrv+img_Produto);
@@ -163,6 +162,11 @@ public class Criacntnrcarrinho extends LinearLayout {
             car.removerProduto(id,context);
             removeAllViews();
         }
+    }
+    private void apagarprod(String idpr, Context context){
+        Carrinho car = new Carrinho();
+        car.removerProduto(idpr, context);
+        setVisibility(GONE);
     }
     private void diminuir(String idproduto, Context context){
         String quantidade = quant.getText().toString();

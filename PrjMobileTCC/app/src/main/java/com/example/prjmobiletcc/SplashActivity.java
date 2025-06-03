@@ -14,11 +14,13 @@ import android.widget.Toast;
 import java.sql.SQLException;
 
 public class SplashActivity extends AppCompatActivity {
-
+    Guardalogin grdlogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        grdlogin = new Guardalogin(getApplicationContext());
+
         ImageView imgv = findViewById(R.id.imgViewSplash); // Seu ImageView
         // Criando animação de "quicar"
         ObjectAnimator bounceAnim = ObjectAnimator.ofFloat(imgv, "translationY", 0f, -50f);
@@ -35,6 +37,13 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         }, 2000); // 1000 = 1 segundos
+        verificalogin();
+    }
+    private void verificalogin(){
+
+        if (grdlogin.loginexpiracao()){
+
+        }
     }
     private void tstconexao(){
         try {

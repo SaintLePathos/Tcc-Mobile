@@ -94,12 +94,13 @@
                 android:padding="10dp">
 
                 <RadioGroup
+                    android:id="@+id/rdogrpPagamento"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="50dp">
 
                     <RadioButton
-                        android:id="@+id/radioButton7"
+                        android:id="@+id/rdoCartaocredito"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -111,7 +112,7 @@
                         android:background="@color/black50" />
 
                     <RadioButton
-                        android:id="@+id/radioButton8"
+                        android:id="@+id/rdoBoletobanco"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -123,7 +124,7 @@
                         android:background="@color/black50" />
 
                     <RadioButton
-                        android:id="@+id/radioButton9"
+                        android:id="@+id/rdoPaguepix"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -134,16 +135,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:padding="5dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/boleto_64" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/black50" />
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -151,6 +143,19 @@
                         android:padding="5dp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/ic_baseline_credit_card_24" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black50" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/boleto_64" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -166,6 +171,7 @@
             </FrameLayout>
 
             <LinearLayout
+                android:id="@+id/lytCktresumo2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">

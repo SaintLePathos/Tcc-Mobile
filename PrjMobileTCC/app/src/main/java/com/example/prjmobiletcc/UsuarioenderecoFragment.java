@@ -57,12 +57,7 @@ public class UsuarioenderecoFragment extends Fragment {
 
         return ver;
     }
-    private void mudatela(Fragment fragment){
-        FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
-        mudaFragm.replace(R.id.contFrmnts, fragment);
-        mudaFragm.addToBackStack(null);
-        mudaFragm.commit();
-    }
+
     private void carregaenderecopadrao(){
         String txt1 = grdlogin.getEnderecopadrao();
         String sql = "SELECT * FROM Endereco_Cliente WHERE Id_Endereco_Cliente = " + txt1;
@@ -99,6 +94,12 @@ public class UsuarioenderecoFragment extends Fragment {
             System.out.println(ex);
         }
 
+    }
+    private void mudatela(Fragment fragment){
+        FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
+        mudaFragm.replace(R.id.contFrmnts, fragment);
+        mudaFragm.addToBackStack(null);
+        mudaFragm.commit();
     }
     private void abredialog(String idend,String txt1){
         Valores vlrs = new Valores();

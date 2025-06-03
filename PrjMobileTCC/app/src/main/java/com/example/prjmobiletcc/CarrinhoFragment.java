@@ -8,9 +8,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -25,6 +27,7 @@ public class CarrinhoFragment extends Fragment {
     LinearLayout lytcntnrcarrinnho;
     Button btnCheckendereco;
     ImageButton btnapagarcarrinho;
+    TextView nitems;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ver = inflater.inflate(R.layout.fragment_carrinho, container, false);
@@ -32,6 +35,7 @@ public class CarrinhoFragment extends Fragment {
         btnCheckendereco = ver.findViewById(R.id.btnCkendereco);
         lytcntnrcarrinnho = ver.findViewById(R.id.lytCntnrcarrinho);
         btnapagarcarrinho = ver.findViewById(R.id.btnLimparcarrinho);
+        nitems = ver.findViewById(R.id.txtvNumitemscar);
 
         carregacarrinho();
         btnCheckendereco.setOnClickListener(v ->trocatelacheckout());
@@ -62,6 +66,12 @@ public class CarrinhoFragment extends Fragment {
                 // Exibe os dados no console
                 System.out.println("carrega");
             }
+            int numeroitems = jsonArray.length();
+            if(numeroitems > 0){
+                nitems.setText(numeroitems + " Items");
+            }else{
+                nitems.setText("Nenhum item no carrinho");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -69,10 +79,27 @@ public class CarrinhoFragment extends Fragment {
 
 
     private void trocatelacheckout(){
-        CheckenderecoFragment ckEndereco = new CheckenderecoFragment();
-        FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
-        mudaFragm.replace(R.id.contFrmnts, ckEndereco);
-        mudaFragm.addToBackStack(null);
-        mudaFragm.commit();
+        Guardalogin grdlogin = new Guardalogin(requireContext());
+        if (grdlogin.existeLogin()) {
+            Carrinho car = new Carrinho();
+            System.out.println("Login ativo!");
+            if (car.carrinhoEstaVazio(requireContext())) {
+                System.out.println("O carrinho está vazio.");
+                Toast.makeText(requireContext(), "Adicione produtos no carrinho para continuar", Toast.LENGTH_SHORT).show();
+            } else {
+                System.out.println("O carrinho contém itens.");
+                CheckenderecoFragment ckEndereco = new CheckenderecoFragment();
+                FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
+                mudaFragm.replace(R.id.contFrmnts, ckEndereco);
+                mudaFragm.addToBackStack(null);
+                mudaFragm.commit();
+            }
+        } else {
+            System.out.println("Nenhum login encontrado.");
+            Toast.makeText(requireContext(),"Faça login para continuar", Toast.LENGTH_SHORT).show();
+        }
+
+
+
     }
 }

@@ -42,8 +42,9 @@ import java.sql.SQLException;
         esqueceusenha.setOnClickListener(v->{
             abrepaginaweb(bdcnx.urlsite);
         });
-
-        if (grdlogin.loginexpiracao()){mudatela();}
+        if (grdlogin.loginexpiracao()){
+            mudatela();
+        }
         return ver;
     }
       private void abrepaginaweb(String url){
@@ -68,7 +69,7 @@ import java.sql.SQLException;
                     Toast.makeText(requireContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
 
                     // Salvar ID do usuário no sistema
-                    grdlogin.salvarLogin(userId, mail, snh);
+                    grdlogin.salvarLogin(userId, mail);
                     System.out.println(userId);
 
                     // Navegar para próxima tela
