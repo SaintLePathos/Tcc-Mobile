@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class UsuariodadosFragment extends Fragment {
 
-    TextView txtvnome, txtvcpf, txtvusuario, txtvemail, txtvtelefone;
+    TextView txtvnome, txtvcpf, txtvemail, txtvtelefone;
     Button btnalterardados;
     View ver;
     Cnxbd bdcnx = new Cnxbd();
@@ -25,7 +25,6 @@ public class UsuariodadosFragment extends Fragment {
         ver = inflater.inflate(R.layout.fragment_usuariodados, container, false);
         txtvnome = ver.findViewById(R.id.txtvClientenome);
         txtvcpf = ver.findViewById(R.id.txtvClientecpf);
-        txtvusuario = ver.findViewById(R.id.txtvClienteusuario);
         txtvemail = ver.findViewById(R.id.txtvClientemail);
         txtvtelefone = ver.findViewById(R.id.txtvClientetelefone);
         btnalterardados = ver.findViewById(R.id.btnAlterarDados);
