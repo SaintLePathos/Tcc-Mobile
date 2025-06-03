@@ -15,7 +15,7 @@ public class Cnxbd {
     String localsite = "/a1/git%20hub/Tcc-Web/";//local do site em nosso servido xampp apartir do htdocs
     String localservidor = "http://"+iP;
     String urlsite = localservidor+localsite;
-    String urlimgsrv = urlsite + "assets/img/";
+    String urlimgsrv = urlsite + "uploads/imgProduto/";
     ResultSet RS;
     java.sql.Statement stmt;
     Connection con;
