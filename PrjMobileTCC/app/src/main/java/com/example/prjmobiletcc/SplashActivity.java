@@ -20,7 +20,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         grdlogin = new Guardalogin(getApplicationContext());
-
         ImageView imgv = findViewById(R.id.imgViewSplash); // Seu ImageView
         // Criando animação de "quicar"
         ObjectAnimator bounceAnim = ObjectAnimator.ofFloat(imgv, "translationY", 0f, -50f);
@@ -28,7 +27,8 @@ public class SplashActivity extends AppCompatActivity {
         bounceAnim.setRepeatMode(ValueAnimator.REVERSE); // Faz o movimento de ida e volta
         bounceAnim.setRepeatCount(ValueAnimator.INFINITE); // Repete infinitamente
         bounceAnim.start();
-        tstconexao();
+
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -38,6 +38,7 @@ public class SplashActivity extends AppCompatActivity {
             }
         }, 2000); // 1000 = 1 segundos
         verificalogin();
+        tstconexao();
     }
     private void verificalogin(){
 
@@ -50,7 +51,7 @@ public class SplashActivity extends AppCompatActivity {
             Cnxbd bdcnx = new Cnxbd();
             bdcnx.entBanco(this);
         }catch (Exception ex){
-            Log.e("DB_ERROR", "Erro ao conectar: " + ex.getMessage());
+            System.out.println(ex);
         }
     }
 }

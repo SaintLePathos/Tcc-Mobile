@@ -207,14 +207,13 @@ public class ProdutosFragment extends Fragment {
 
                 Criacntnr cntnrProduto = new Criacntnr(requireContext());
                 String id_Produto = bdcnx.RS.getString("Id_Produto");
-                String img_Produto = bdcnx.RS.getString("Img_Produto");
                 String nome_Produto = bdcnx.RS.getString("Nome_Produto");
                 String tamanho_Produto = bdcnx.RS.getString("Tamanho_Produto");
                 String tecido_Produto = bdcnx.RS.getString("Tecido_Produto");
                 String cor_Produto = bdcnx.RS.getString("Cor_Produto");
                 String desconto_Produto = bdcnx.RS.getString("Desconto_Produto");
                 String valor_Produto = bdcnx.RS.getString("Valor_Produto");
-                cntnrProduto.valores(img_Produto,nome_Produto+", "+tamanho_Produto+", "+cor_Produto+", "+tecido_Produto,desconto_Produto,valor_Produto);
+                cntnrProduto.valores(id_Produto,nome_Produto+", "+tamanho_Produto+", "+cor_Produto+", "+tecido_Produto,desconto_Produto,valor_Produto,requireContext());
                 cntnrProduto.setOnClickListener(v->trocateladetalhes(id_Produto));
                 lytcntnrProdutos.addView(cntnrProduto);
             }

@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.sql.SQLException;
+
 public class Criacntnr extends LinearLayout {
 
     Cnxbd bdcnx = new Cnxbd();
@@ -79,10 +81,20 @@ public class Criacntnr extends LinearLayout {
         addView(img);
         addView(cntnrTxt);
     }
-    public void valores(String imagemP, String nomeP, String valordesP, String valorP){
+    public void valores(String idproduto, String nomeP, String valordesP, String valorP,Context context){
         int quantidadedevezesnocartao = 10;
         String valordesconto = vlrs.calculades(valorP,valordesP);
-        new CarregaImagem(img).execute(bdcnx.urlimgsrv+imagemP);
+        try {
+            Cnxbd bdcnx = new Cnxbd();
+            bdcnx.entBanco(context);
+            bdcnx.RS = bdcnx.stmt.executeQuery("SELECT Url_ImgProduto FROM Imagem_Produto WHERE Id_Produto = " + idproduto + " ORDER BY Ordem_ImgProduto ASC");
+            if (bdcnx.RS.next()){
+                String imgurl = bdcnx.RS.getString("Url_ImgProduto");
+                new CarregaImagem(img).execute(bdcnx.urlimgsrv+imgurl);
+            }
+        }catch (SQLException ex){
+            System.out.println(ex);
+        }
         nome.setText(nomeP);
         valor.setText("R$ "+ valorP.replace(".",",") +" a vista NO PIX");
         valordes.setText("de R$ "+valordesconto+" por:");

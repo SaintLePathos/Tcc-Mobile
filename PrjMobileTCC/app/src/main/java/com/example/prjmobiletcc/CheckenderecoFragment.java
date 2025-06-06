@@ -51,9 +51,13 @@ public class CheckenderecoFragment extends Fragment {
             mudaFragm.replace(R.id.contFrmnts, fragment);
             mudaFragm.addToBackStack(null);
             mudaFragm.commit();
+
         } else {
             System.out.println("Nenhum endereço padrão cadastrado.");
-            Toast.makeText(requireContext(), "Escolha um endereço de envio", Toast.LENGTH_SHORT).show();
+            FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
+            mudaFragm.replace(R.id.contFrmnts, fragment);
+            mudaFragm.addToBackStack(null);
+            mudaFragm.commit();
         }
     }
 

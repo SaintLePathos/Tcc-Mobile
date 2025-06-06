@@ -92,12 +92,12 @@ public class DetalhesFragment extends Fragment {
                     "FROM Produto p " +
                     "LEFT JOIN Produto_Pedido pp ON pp.Id_Produto = p.Id_Produto " +
                     "WHERE p.Id_Produto = "+vlrs.idproduto+" " +
-                    "GROUP BY p.Id_Produto, p.Id_Fornecedor, p.Nome_Produto, p.Img_Produto, p.Descricao_Produto, " +
+                    "GROUP BY p.Id_Produto, p.Id_Fornecedor, p.Nome_Produto, p.Descricao_Produto, " +
                     "p.Valor_Produto, p.Desconto_Produto, p.Tamanho_Produto, p.Quantidade_Produto, " +
                     "p.Tecido_Produto, p.Cor_Produto;");
             if(bdcnx.RS.next()){
                 String nome_Produto,
-                        img_Produto,
+
                         descricao_Produto,
                         valor_Produto,
                         desconto_Produto,
@@ -107,7 +107,7 @@ public class DetalhesFragment extends Fragment {
                         cor_Produto,
                         verda_Produto;
                 nome_Produto = bdcnx.RS.getString("Nome_Produto");
-                img_Produto = bdcnx.RS.getString("Img_Produto");
+
                 descricao_Produto = bdcnx.RS.getString("Descricao_Produto");
                 valor_Produto = bdcnx.RS.getString("Valor_Produto");
                 desconto_Produto = bdcnx.RS.getString("Desconto_Produto");
@@ -117,11 +117,6 @@ public class DetalhesFragment extends Fragment {
                 cor_Produto = bdcnx.RS.getString("Cor_Produto");
                 verda_Produto = bdcnx.RS.getString("Quantidade_Total_Produto_Pedido");
                 String valordesconto = vlrs.calculades(valor_Produto,desconto_Produto);
-                new CarregaImagem(imgvslide).execute(bdcnx.urlimgsrv+img_Produto);
-                new CarregaImagem(imgvcx1).execute(bdcnx.urlimgsrv+img_Produto);
-                new CarregaImagem(imgvcx2).execute(bdcnx.urlimgsrv+img_Produto);
-                new CarregaImagem(imgvcx3).execute(bdcnx.urlimgsrv+img_Produto);
-                new CarregaImagem(imgvcx4).execute(bdcnx.urlimgsrv+img_Produto);
                 txtnome.setText(nome_Produto+", "+tecido_Produto+", "+cor_Produto+", "+tamanho_Produto);
                 if (quantidade_Produto.equals("0")){
                     txtdisponibi.setText("PRODUTO ESGOTADO");
@@ -140,6 +135,24 @@ public class DetalhesFragment extends Fragment {
                 txtdesconto.setText(desconto_Produto+"%");
                 txtvendido.setText(verda_Produto);
                 txtestoque.setText(quantidade_Produto);
+                try {
+                    bdcnx.entBanco(requireContext());
+                    bdcnx.RS = bdcnx.stmt.executeQuery("SELECT Url_ImgProduto FROM Imagem_Produto WHERE Id_Produto = " + vlrs.idproduto + " ORDER BY Ordem_ImgProduto ASC");
+
+                    int index = 0;
+                    ImageView[] imgViews = {imgvslide, imgvcx1, imgvcx2, imgvcx3, imgvcx4};
+
+                    while (bdcnx.RS.next()) {
+                        String imgurl = bdcnx.RS.getString("Url_ImgProduto");
+                        if (index < imgViews.length) {
+                            new CarregaImagem(imgViews[index]).execute(bdcnx.urlimgsrv + imgurl);
+                            index++;
+                        }
+                    }
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+
                 vlrs.descricaoProduto = descricao_Produto;
             }
         }catch (SQLException ex){

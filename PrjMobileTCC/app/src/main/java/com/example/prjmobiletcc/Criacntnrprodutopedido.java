@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.sql.SQLException;
+
 public class Criacntnrprodutopedido extends LinearLayout {
     public Criacntnrprodutopedido(Context context){
         super(context);
@@ -129,9 +131,19 @@ public class Criacntnrprodutopedido extends LinearLayout {
         frameLayout.addView(verticalLayout);
         this.addView(frameLayout);
     }
-    public void inserirdds(String nome, String quantidade, String valorunit, String valortotal, String imagem){
-        Cnxbd bdcnx = new Cnxbd();
-        new CarregaImagem(imageView).execute( bdcnx.urlimgsrv+imagem);
+    public void inserirdds(String nome, String quantidade, String valorunit, String valortotal, String idproduto, Context context){
+        try {
+            Cnxbd bdcnx = new Cnxbd();
+            bdcnx.entBanco(context);
+            bdcnx.RS = bdcnx.stmt.executeQuery("SELECT Url_ImgProduto FROM Imagem_Produto WHERE Id_Produto = " + idproduto + " ORDER BY Ordem_ImgProduto ASC");
+            if (bdcnx.RS.next()){
+                String imgurl = bdcnx.RS.getString("Url_ImgProduto");
+                new CarregaImagem(imageView).execute( bdcnx.urlimgsrv+imgurl);
+            }
+        }catch (SQLException ex){
+            System.out.println(ex);
+        }
+
         textViewTitle.setText(nome);
         if (quantidade.equals("1")){
             valueTextViewquant.setText(quantidade+" Unidade");

@@ -102,7 +102,6 @@ public class PedidodetalhesFragment extends Fragment {
             bdcnx.RS = bdcnx.stmt.executeQuery("SELECT " +
                     "p.Id_Produto, " +
                     "p.Nome_Produto, " +
-                    "p.Img_Produto, " +
                     "pp.Quantidade_Produto_Pedido, " +
                     "pp.Valor_Produto_Pedido, " +
                     "(pp.Valor_Produto_Pedido * pp.Quantidade_Produto_Pedido) AS Valor_Total_Produto " +
@@ -112,14 +111,13 @@ public class PedidodetalhesFragment extends Fragment {
             while (bdcnx.RS.next()){
                 String idproduto = bdcnx.RS.getString("Id_Produto");
                 String nomeproduto = bdcnx.RS.getString("Nome_Produto");
-                String imgproduto = bdcnx.RS.getString("Img_Produto");
                 String quantidade = bdcnx.RS.getString("Quantidade_Produto_Pedido");
                 String valorunit = bdcnx.RS.getString("Valor_Produto_Pedido").replace(".",",");
                 String valortotal = bdcnx.RS.getString("Valor_Total_Produto").replace(".",",");
 
                 Criacntnrprodutopedido cntnrprodutoped = new Criacntnrprodutopedido(requireContext());
 
-                cntnrprodutoped.inserirdds(nomeproduto, quantidade,valorunit,valortotal,imgproduto);
+                cntnrprodutoped.inserirdds(nomeproduto, quantidade,valorunit,valortotal,idproduto, requireContext());
 
                 lytcntnr.addView(cntnrprodutoped);
             }

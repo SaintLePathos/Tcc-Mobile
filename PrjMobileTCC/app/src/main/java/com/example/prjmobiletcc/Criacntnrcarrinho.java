@@ -136,7 +136,7 @@ public class Criacntnrcarrinho extends LinearLayout {
             bdcnx.entBanco(context);
             bdcnx.RS = bdcnx.stmt.executeQuery("SELECT * FROM Produto WHERE Id_Produto = "+id);
             if (bdcnx.RS.next()){
-                String img_Produto = bdcnx.RS.getString("Img_Produto");
+
                 String nome_Produto = bdcnx.RS.getString("Nome_Produto");
                 String tamanho_Produto = bdcnx.RS.getString("Tamanho_Produto");
                 String tecido_Produto = bdcnx.RS.getString("Tecido_Produto");
@@ -154,8 +154,16 @@ public class Criacntnrcarrinho extends LinearLayout {
                 apagar.setOnClickListener(view -> apagarprod(id,context));
                 aumentar.setOnClickListener(view -> aumentar(id,quantidade_produto,context));
                 diminuir.setOnClickListener(view -> diminuir(id,context));
-                new CarregaImagem(imgv).execute(bdcnx.urlimgsrv+img_Produto);
-
+                try {
+                    bdcnx.entBanco(context);
+                    bdcnx.RS = bdcnx.stmt.executeQuery("SELECT Url_ImgProduto FROM Imagem_Produto WHERE Id_Produto = " + id + " ORDER BY Ordem_ImgProduto ASC");
+                    if (bdcnx.RS.next()){
+                        String imgurl = bdcnx.RS.getString("Url_ImgProduto");
+                        new CarregaImagem(imgv).execute(bdcnx.urlimgsrv+imgurl);
+                    }
+                }catch (SQLException ex){
+                    System.out.println(ex);
+                }
             }
         }catch (SQLException ex){
             Carrinho car = new Carrinho();

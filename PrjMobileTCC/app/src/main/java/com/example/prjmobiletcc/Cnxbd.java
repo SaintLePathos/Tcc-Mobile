@@ -31,6 +31,7 @@ public class Cnxbd {
         }
         catch(Exception ex){
             Toast.makeText(ctx.getApplicationContext(), "Drive não correto", Toast.LENGTH_SHORT).show();
+            System.out.println(ex);
         }
 
         try{
@@ -42,7 +43,7 @@ public class Cnxbd {
         catch(SQLException ex){
             //Toast.makeText(ctx.getApplicationContext(), "Erro de conexão", Toast.LENGTH_SHORT).show();
             Toast.makeText(ctx.getApplicationContext(), "Erro de conexão: " + ex.getMessage(), Toast.LENGTH_LONG).show();
-            ex.printStackTrace(); // Isso mostrará detalhes no Logcat
+            System.out.println(ex);
         }
         return con;
 
