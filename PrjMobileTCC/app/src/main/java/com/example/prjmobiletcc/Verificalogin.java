@@ -13,7 +13,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 public class Verificalogin {
-    private static final String BASE_URL = "http://10.0.0.170/a1/android/"; // Substitua pelo seu servidor
+    private static final String BASE_URL = "http://10.0.0.170/a1/Tcc-Web/assets/php/"; // Substitua pelo seu servidor
 
     // Interface para comunicação com o servidor
     public interface ApiService {

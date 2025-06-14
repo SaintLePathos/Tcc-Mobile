@@ -40,9 +40,21 @@ public class CarrinhoFragment extends Fragment {
         carregacarrinho();
         btnCheckendereco.setOnClickListener(v ->trocatelacheckout());
         btnapagarcarrinho.setOnClickListener(view ->apagarcar());
+        Guardalogin grdlogin = new Guardalogin(requireContext());
+
+        if (!grdlogin.loginexpiracao()){
+            mudatela();
+        }
         return ver;
     }
 
+    private void mudatela(){
+        LoginFragment cntFramg = new LoginFragment();
+        FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
+        mudaFragm.replace(R.id.contFrmnts, cntFramg);
+        mudaFragm.addToBackStack(null);
+        mudaFragm.commit();
+    }
     private void apagarcar(){
         Carrinho car = new Carrinho();
         car.limparCarrinho(requireContext());

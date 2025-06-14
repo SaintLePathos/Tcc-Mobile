@@ -93,12 +93,24 @@ public class ProdutosFragment extends Fragment {
                 pegavlrRdo();
             }
         });
+        Guardalogin grdlogin = new Guardalogin(requireContext());
 
+        if (!grdlogin.loginexpiracao()){
+            mudatela();
+        }
         carregafiltros("Tamanho_Produto", fltstamanho,fltstamanhoquantidade);
         carregafiltros("Cor_Produto", fltscor,fltscorquantidade);
         carregafiltros("Tecido_Produto", fltstecido,fltstecidoquantidade);
         criacomandosql();
+
         return ver;
+    }
+    private void mudatela(){
+        LoginFragment cntFramg = new LoginFragment();
+        FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
+        mudaFragm.replace(R.id.contFrmnts, cntFramg);
+        mudaFragm.addToBackStack(null);
+        mudaFragm.commit();
     }
     private void fecharfechar(LinearLayout lyt, ImageView icUP, ImageView icDOWN){
         lyt.setVisibility(View.GONE);

@@ -34,10 +34,22 @@ public class CasaFragment extends Fragment {
         imgv = ver.findViewById(R.id.imgvCasa1);
         conteinerProduto = ver.findViewById(R.id.layoutContcasa);
         contprodutos = ver.findViewById(R.id.layoutContcasa);
+        Guardalogin grdlogin = new Guardalogin(requireContext());
 
+        if (!grdlogin.loginexpiracao()){
+            mudatela();
+        }
         criacontainer();
         crrgImg();
+
         return ver;
+    }
+    private void mudatela(){
+        LoginFragment cntFramg = new LoginFragment();
+        FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
+        mudaFragm.replace(R.id.contFrmnts, cntFramg);
+        mudaFragm.addToBackStack(null);
+        mudaFragm.commit();
     }
     private void criacontainer(){
         contprodutos.removeAllViews();

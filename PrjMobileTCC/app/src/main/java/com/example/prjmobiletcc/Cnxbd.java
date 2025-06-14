@@ -12,10 +12,10 @@ import java.sql.Statement;
 
 public class Cnxbd {
     String iP = "10.0.0.170";//ip do servidor usa o ipconfig no prompt e pega o ipv4
-    String localsite = "/a1/git%20hub/Tcc-Web/";//local do site em nosso servido xampp apartir do htdocs
+    String localsite = "/a1/Tcc-Web/";//local do site em nosso servido xampp apartir do htdocs
     String localservidor = "http://"+iP;
     String urlsite = localservidor+localsite;
-    String urlimgsrv = urlsite + "uploads/imgProduto/";
+    String urlimgsrv = urlsite;// + "uploads/imgProduto/";
     ResultSet RS;
     java.sql.Statement stmt;
     Connection con;
