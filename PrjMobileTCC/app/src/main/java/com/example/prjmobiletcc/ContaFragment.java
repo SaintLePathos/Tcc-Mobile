@@ -66,10 +66,10 @@ public class ContaFragment extends Fragment {
                 String nome = bdcnx.RS.getString("Nome_Cliente");
                 String email = bdcnx.RS.getString("Email_Cliente");
 
-                txtvusuario.setText("Bem-vindo");
+                txtvusuario.setText("Bem-vindo de volta, " + nome);
 
 
-                txtvinfologin.setText(nome + "\n" + email);
+                txtvinfologin.setText(email);
             }else {
                 System.out.println("nao achou o id");
             }

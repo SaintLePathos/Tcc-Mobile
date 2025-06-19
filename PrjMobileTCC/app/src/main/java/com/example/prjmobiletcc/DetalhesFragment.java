@@ -1,5 +1,6 @@
 package com.example.prjmobiletcc;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialogFragment;
@@ -138,6 +139,7 @@ public class DetalhesFragment extends Fragment {
                 }else{
                     txtdisponibi.setText("PRODUTO DISPONIVEL");
                 }
+                txtvalordes.setPaintFlags(txtvalordes.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 txtvalordes.setText("de R$" + valordesconto + " para");
                 txtpagvista.setText("No pix com " + desconto_Produto + "% de desconto");
                 int vezesnocartao = 10;

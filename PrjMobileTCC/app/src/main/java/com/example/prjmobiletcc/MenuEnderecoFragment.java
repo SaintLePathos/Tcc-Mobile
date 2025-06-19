@@ -45,7 +45,9 @@ public class MenuEnderecoFragment extends BottomSheetDialogFragment {
             Cnxbd bdcnx = new Cnxbd();
             bdcnx.entBanco(requireContext());
             String idenderec = vlrs.idendereco;
-            int result = bdcnx.stmt.executeUpdate("DELETE FROM Endereco_Cliente WHERE Id_Endereco_Cliente = " + idenderec);
+            int result = bdcnx.stmt.executeUpdate("UPDATE " +
+                    "Endereco_Cliente " +
+                    "SET Visivel = 0 WHERE Id_Endereco_Cliente = " + idenderec);
             if (result > 0){
                 mudatela(new UsuarioenderecoFragment());
                 Toast.makeText(requireContext(),"Endereco apagado com sucesso",Toast.LENGTH_SHORT).show();

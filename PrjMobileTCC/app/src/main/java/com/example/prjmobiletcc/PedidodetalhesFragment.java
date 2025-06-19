@@ -73,17 +73,18 @@ public class PedidodetalhesFragment extends Fragment {
                 String endbairro = bdcnx.RS.getString("Bairro_Cliente");
                 String endereco = endrua + "," + endnum + "," + endbairro;
                 txtvnumpedido.setText("Nº do Pedido: "+num);
-                txtvdtpedido.setText(dtpedido);
+                txtvdtpedido.setText(formatarData(dtpedido));
                 if (dtenvio != null){
                     txtvstatus.setText("Enviado");
-                    txtvdtenvio.setText(dtenvio);
-                }else if (dtentrega != null){
-                    txtvstatus.setText("Entregue");
-                    txtvdtentrega.setText(dtentrega);
+                    txtvdtenvio.setText(formatarData(dtenvio));
+                    if (dtentrega != null){
+                        txtvstatus.setText("Entregue");
+                        txtvdtentrega.setText(formatarData(dtentrega));
+                    }
                 }else{
                     txtvstatus.setText("Em Preparação");
-                    txtvdtenvio.setText("XX-XX-XXXX");
-                    txtvdtentrega.setText("XX-XX-XXXX");
+                    txtvdtenvio.setText("Sem Data Registrada");
+                    txtvdtentrega.setText("Sem Data Registrada");
                 }
                 txtvenderecoentrega.setText(endereco);
                 txtvvalortotal.setText("R$"+valorttl);
@@ -124,5 +125,8 @@ public class PedidodetalhesFragment extends Fragment {
         }catch (SQLException ex){
             System.out.println(ex);
         }
+    }
+    public static String formatarData(String data) {
+        return data.replace("-", "/");
     }
 }

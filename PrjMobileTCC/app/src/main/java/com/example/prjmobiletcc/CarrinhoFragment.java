@@ -24,7 +24,7 @@ public class CarrinhoFragment extends Fragment {
         // Required empty public constructor
     }
     View ver;
-    LinearLayout lytcntnrcarrinnho;
+    LinearLayout lytcntnrcarrinnho,lytaviso;
     Button btnCheckendereco;
     ImageButton btnapagarcarrinho;
     TextView nitems;
@@ -35,6 +35,7 @@ public class CarrinhoFragment extends Fragment {
         btnCheckendereco = ver.findViewById(R.id.btnCkendereco);
         lytcntnrcarrinnho = ver.findViewById(R.id.lytCntnrcarrinho);
         btnapagarcarrinho = ver.findViewById(R.id.btnLimparcarrinho);
+        lytaviso = ver.findViewById(R.id.lytAvisocarinho);
         nitems = ver.findViewById(R.id.txtvNumitemscar);
 
         carregacarrinho();
@@ -81,11 +82,17 @@ public class CarrinhoFragment extends Fragment {
             int numeroitems = jsonArray.length();
             if(numeroitems > 0){
                 nitems.setText(numeroitems + " Items");
+                btnCheckendereco.setVisibility(View.VISIBLE);
+                lytaviso.setVisibility(View.GONE);
             }else{
                 nitems.setText("Nenhum item no carrinho");
+                lytaviso.setVisibility(View.VISIBLE);
+                btnCheckendereco.setVisibility(View.GONE);
             }
+
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
+
         }
     }
 

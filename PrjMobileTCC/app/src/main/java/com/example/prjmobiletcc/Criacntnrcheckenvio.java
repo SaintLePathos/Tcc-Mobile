@@ -1,6 +1,8 @@
 package com.example.prjmobiletcc;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.ImageView;
@@ -27,6 +29,9 @@ public class Criacntnrcheckenvio extends LinearLayout {
                 dpToPx(50)));
         txtEndereco.setGravity(Gravity.BOTTOM | Gravity.LEFT);
         txtEndereco.setText("Forma de Envio");
+        txtEndereco.setTextColor(Color.BLACK);
+        txtEndereco.setTypeface(null, Typeface.BOLD);
+        txtEndereco.setTextSize(18);
         this.addView(txtEndereco);
 
         // LinearLayout para o endereço
@@ -72,7 +77,7 @@ public class Criacntnrcheckenvio extends LinearLayout {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 dpToPx(40)));
         txtInferior.setGravity(Gravity.CENTER_VERTICAL);
-        txtInferior.setText("Frete: R$XX,XX");
+        txtInferior.setText("Frete: R$0,00");
         lytEndereco.addView(txtInferior);
     }
 

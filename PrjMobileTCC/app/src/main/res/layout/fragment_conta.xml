@@ -10,32 +10,37 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
 
         <TextView
             android:id="@+id/txtDadosusuario"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:gravity="left|center_vertical"
-            android:text="Bem vindo de volta, usuario " />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom|left|center_vertical"
+            android:text="Bem vindo de volta, usuario "
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/txtvDadoslogin"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="left|center_vertical"
-            android:lineSpacingExtra="4sp"
-            android:text="nome sobrenome \n exemplo@gmail.com " />
+            android:text=" exemplo@gmail.com "
+            android:textColor="@color/black"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="100dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,7 +59,8 @@
                     android:drawableBottom="@color/black"
                     android:gravity="left|center_vertical"
                     android:paddingLeft="10dp"
-                    android:text="Geral" />
+                    android:text="Geral"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -68,7 +74,8 @@
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
                     android:text="Dados pessoais"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -82,7 +89,8 @@
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
                     android:text="Meus endereços"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -96,7 +104,8 @@
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
                     android:text="Meus pedidos"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -108,7 +117,8 @@
                     android:layout_height="70dp"
                     android:gravity="left|center_vertical"
                     android:paddingLeft="10dp"
-                    android:text="Legal" />
+                    android:text="Legal"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -122,7 +132,8 @@
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
                     android:text="Termos e condições de uso"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -136,7 +147,8 @@
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
                     android:text="Politicas e privacidade"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -150,7 +162,8 @@
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
                     android:text="Sobre"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -162,7 +175,8 @@
                     android:layout_height="70dp"
                     android:gravity="left|center_vertical"
                     android:paddingLeft="10dp"
-                    android:text="Personal" />
+                    android:text="Personal"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -176,7 +190,8 @@
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
                     android:text="Sair"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <Space

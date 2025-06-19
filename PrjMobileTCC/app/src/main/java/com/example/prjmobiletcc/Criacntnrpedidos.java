@@ -263,7 +263,7 @@ public class Criacntnrpedidos extends LinearLayout {
     }
     public void inserirdados(String numeroPedido, String data, String status, String valor) {
         txtNumeroPedido.setText("Nº Pedido: "+numeroPedido);
-        textodata.setText(data);
+        textodata.setText(formatarData(data));
         textostatus.setText(status);
         textovalortotal.setText("R$ "+valor.replace(".",","));
     }
@@ -280,5 +280,8 @@ public class Criacntnrpedidos extends LinearLayout {
     private void mostradetalhes(){
         lytdetalhes.setVisibility(VISIBLE);
         lytmaisdetalhes.setVisibility(GONE);
+    }
+    private static String formatarData(String data) {
+        return data.replace("-", "/");
     }
 }

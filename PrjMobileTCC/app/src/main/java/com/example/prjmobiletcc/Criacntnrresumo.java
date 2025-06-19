@@ -2,6 +2,8 @@ package com.example.prjmobiletcc;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.LinearLayout;
@@ -33,6 +35,9 @@ public class Criacntnrresumo extends LinearLayout {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 dpToPx(50)));
         txtResumo.setGravity(Gravity.BOTTOM | Gravity.LEFT);
+        txtResumo.setTextColor(Color.BLACK);
+        txtResumo.setTypeface(null, Typeface.BOLD);
+        txtResumo.setTextSize(18);
         txtResumo.setText("Resumo");
         this.addView(txtResumo);
 

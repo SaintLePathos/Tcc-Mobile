@@ -62,7 +62,8 @@ public class CheckpagamentoFragment extends Fragment {
                     vlrs.pagamento = textopag;
                     break;
             }
-            Toast.makeText(requireContext(),vlrs.pagamento,Toast.LENGTH_SHORT).show();
+            System.out.println(vlrs.pagamento);
+            //Toast.makeText(requireContext(),vlrs.pagamento,Toast.LENGTH_SHORT).show();
         }
     }
     public boolean radioSelecionado() {

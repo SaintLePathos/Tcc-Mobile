@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/drawable/apagarcarrinho.xml" value="0.2115" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/drawable/borda10.xml" value="0.1855" />
+        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/drawable/borda_arrend_semlinha.xml" value="0.2155" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/drawable/bordabtn.xml" value="0.121" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/drawable/bordainferior.xml" value="0.2165" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/drawable/bordaplaintxt.xml" value="0.2095" />
@@ -21,12 +22,12 @@
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/drawable/topoarredondado.xml" value="0.2115" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/activity_splash.xml" value="0.209375" />
-        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_carrinho.xml" value="0.33" />
+        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_carrinho.xml" value="0.22" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_casa.xml" value="0.33" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_checkendereco.xml" value="0.33" />
-        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_checkpagamento.xml" value="0.5" />
+        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_checkpagamento.xml" value="0.25" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_checkrevisao.xml" value="0.209375" />
-        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_conta.xml" value="0.33" />
+        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_conta.xml" value="0.209375" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_detalhes.xml" value="0.33" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_detalhes_descricao.xml" value="0.25" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_enderecocadastro.xml" value="0.25" />
@@ -34,10 +35,10 @@
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_menu_endereco.xml" value="0.33" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_pedido_rastreio.xml" value="0.25" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_pedidodetalhes.xml" value="0.29559748427672955" />
-        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_politicaseprivacidade.xml" value="0.20885416666666667" />
-        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_produtos.xml" value="0.4266666666666667" />
-        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_termosecondicoesdeuso.xml" value="0.20885416666666667" />
-        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_usuariodados.xml" value="0.33" />
+        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_politicaseprivacidade.xml" value="0.1950509461426492" />
+        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_produtos.xml" value="0.22" />
+        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_termosecondicoesdeuso.xml" value="0.278393351800554" />
+        <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_usuariodados.xml" value="0.22" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_usuarioendereco.xml" value="0.33" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/layout/fragment_usuariopedido.xml" value="0.25" />
         <entry key="..\:/Users/Intel/Desktop/AndroidStudioProjetos/PrjMobileTCC/app/src/main/res/menu/bottom_nav_menu.xml" value="0.16" />

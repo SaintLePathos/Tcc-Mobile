@@ -1,19 +1,17 @@
 package com.example.prjmobiletcc;
 
 import android.os.Bundle;
-import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 
 public class UsuariopedidoFragment extends Fragment {
     View ver;
-    LinearLayout lytcntnrpedido;
+    LinearLayout lytcntnrpedido,lytaviso;
     Guardalogin grdlogin;
     public UsuariopedidoFragment() {
         // Required empty public constructor
@@ -22,7 +20,7 @@ public class UsuariopedidoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ver = inflater.inflate(R.layout.fragment_usuariopedido, container, false);
         lytcntnrpedido = ver.findViewById(R.id.lytCntnrpedido);
-
+        lytaviso = ver.findViewById(R.id.lytAvisocarinho);
 
 
         grdlogin = new Guardalogin(requireContext());
@@ -48,6 +46,7 @@ public class UsuariopedidoFragment extends Fragment {
                 "GROUP BY p.Id_Pedido, p.Data_Pedido, p.Data_Envio_Pedido, p.Data_Entrega_Pedido;";
         try{
             lytcntnrpedido.removeAllViews();
+
             Cnxbd bdcnx = new Cnxbd();
             bdcnx.entBanco(requireContext());
             bdcnx.RS = bdcnx.stmt.executeQuery(sql);
@@ -74,9 +73,11 @@ public class UsuariopedidoFragment extends Fragment {
                 criacntnrpedidos.btnRastrearPedido.setOnClickListener(v->abredialog(idpedido,dataenvio));
                 criacntnrpedidos.btnVerPedido.setOnClickListener(v->mudatela(new PedidodetalhesFragment(),idpedido));
                 lytcntnrpedido.addView(criacntnrpedidos);
+                lytaviso.setVisibility(View.GONE);
             }
 
         }catch (Exception ex){
+
             System.out.println(ex);
         }
     }

@@ -60,7 +60,16 @@ public class UsuarioenderecoFragment extends Fragment {
 
     private void carregaenderecopadrao(){
         String txt1 = grdlogin.getEnderecopadrao();
-        String sql = "SELECT * FROM Endereco_Cliente WHERE Id_Endereco_Cliente = " + txt1;
+        String sql = "SELECT " +
+                "Id_Endereco_Cliente, " +
+                "CEP_Cliente, " +
+                "Estado_Cliente, " +
+                "Cidade_Cliente, " +
+                "Bairro_Cliente, " +
+                "Rua_Cliente, " +
+                "Numero_Cliente, " +
+                "Complemento_Cliente " +
+                " FROM Endereco_Cliente WHERE Id_Endereco_Cliente = " + txt1;
         lytenderecopadrao.removeAllViews();
         try{
             bdcnx.entBanco(requireContext());
@@ -111,7 +120,17 @@ public class UsuarioenderecoFragment extends Fragment {
     }
     private void carregamentoend(){
         String id = grdlogin.getId();
-        String sql = "SELECT * FROM Endereco_Cliente WHERE Id_Cliente = " + id;
+        String sql = "SELECT " +
+                "Id_Endereco_Cliente, " +
+                "CEP_Cliente, " +
+                "Estado_Cliente, " +
+                "Cidade_Cliente, " +
+                "Bairro_Cliente, " +
+                "Rua_Cliente, " +
+                "Numero_Cliente, " +
+                "Complemento_Cliente " +
+                " FROM Endereco_Cliente WHERE Id_Cliente = " + id +
+                " AND Visivel = 1";
         lytcntnrenderecos.removeAllViews();
         try{
             bdcnx.entBanco(requireContext());

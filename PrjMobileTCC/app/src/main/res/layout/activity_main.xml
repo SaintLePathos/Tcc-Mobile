@@ -40,12 +40,13 @@
                 android:layout_height="56dp"
                 android:layout_gravity="left|center_vertical"
                 android:src="@drawable/logo" />
-
+<!--
             <SearchView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center|right"
-                android:queryHint="Procurar produtos..." />
+                android:queryHint="Procurar produtos..."
+                tools:visibility="gone" />-->
         </FrameLayout>
     </android.support.design.widget.AppBarLayout>
 

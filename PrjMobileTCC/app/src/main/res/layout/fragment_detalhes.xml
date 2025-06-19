@@ -179,7 +179,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="30dp"
-                    android:text="@string/exemplotexto" />
+                    android:text="@string/exemplotexto"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -206,7 +208,7 @@
                         android:gravity="right|center_vertical"
                         android:text="PRODUTO DISPONIVEL"
                         android:textColor="@color/verdedinheiro"
-                        android:textSize="16sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -231,6 +233,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="left|center_vertical"
+                        android:paddingLeft="20dp"
                         android:text="de R$XX,XX para "
                         android:textAllCaps="false"
                         android:textColor="@color/vermelhodinheiro"
@@ -250,14 +253,15 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="left|center_vertical"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
                             android:text="No pix com XX% de desconto"
-                            android:textSize="14sp" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/txtvCnt1valor1"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:fontFamily="sans-serif"
                             android:gravity="right|center_vertical"
                             android:text="R$XX,XX"
@@ -284,14 +288,15 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="left|center_vertical"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
                             android:text="em ate XXx vezes sem juros no cartão"
-                            android:textSize="14sp" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/txtvCnt1valor2"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:fontFamily="sans-serif"
                             android:gravity="right|center_vertical"
                             android:text="R$XX,XX"
@@ -334,6 +339,7 @@
                             android:gravity="left|center_vertical"
                             android:text="Desconto"
                             android:textColor="@color/cinzatema"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -345,7 +351,7 @@
                             android:text="XX%"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -367,6 +373,7 @@
                             android:gravity="left|center_vertical"
                             android:text="Vendido"
                             android:textColor="@color/cinzatema"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -378,7 +385,7 @@
                             android:text="XX"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -400,6 +407,7 @@
                             android:gravity="left|center_vertical"
                             android:text="Disponivel"
                             android:textColor="@color/cinzatema"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -411,7 +419,7 @@
                             android:text="XX"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 

@@ -3,5 +3,101 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="exemplotexto">Este é um texto <font color='#FF0000'>vermelho</font>. E mais texto e correeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Política de Privacidade Tardigrado -->
+    <string name="politica_privacidade">
+        <b>POLÍTICA DE PRIVACIDADE DA TARDIGRADO</b>\n\n
+        **Última atualização: [03/03/2025]**\n\n
+        A Tardigrado respeita a privacidade de seus clientes, parceiros e visitantes. Esta Política de Privacidade descreve como coletamos, usamos, compartilhamos e protegemos suas informações pessoais, em conformidade com a LGPD e outras legislações de privacidade.\n\n
+
+        1. INFORMAÇÕES COLETADAS\n
+        - Dados de identificação: nome, sobrenome, CPF ou CNPJ\n
+        - Dados de contato: e-mail, telefone, endereço de entrega\n
+        - Dados de pagamento: número do cartão, vencimento, nome do portador\n
+        - Dados de compras: histórico de compras, tamanho, cor, modelo das peças\n
+        - Dados de navegação: endereço IP, páginas visitadas, duração da visita\n
+        - Dados de atendimento: mensagens trocadas com o atendimento\n\n
+
+        2. COMO USAMOS AS INFORMAÇÕES\n
+        - Realizar o atendimento de pedidos\n
+        - Melhorar a experiência de compras\n
+        - Encaminhar informativos, descontos, ofertas especiais\n
+        - Realizar análise de desempenho e melhoria dos serviços\n
+        - Prevenir fraudes e atender às exigências legais\n\n
+
+        3. COMPARTILHAMENTO DOS DADOS\n
+        Apenas compartilhamos suas informações nas seguintes circunstâncias:\n
+        - Com prestadores de serviço que auxiliam na execução de nossos serviços\n
+        - Com autoridades públicas, se exigido\n
+        - Com o seu consentimento expresso\n\n
+
+        4. ARMAZENAMENTO E SEGURANÇA DOS DADOS\n
+        Implementamos medidas de segurança para a proteção das suas informações pessoais, como:\n
+        - Criptografia\n
+        - Controle de acesso\n
+        - Uso de firewalls\n
+        - Outros protocolos específicos\n\n
+
+        5. DIREITOS DOS TITULARES DOS DADOS\n
+        De acordo com a LGPD, você tem direito de:\n
+        - Acessar suas informações pessoais\n
+        - Corrigir quaisquer dúvidas ou inexatidão\n
+        - Solicitar a exclusão de seus dados pessoais\n
+        - Portabilidade de seus dados para outro prestador\n
+        - Revogar o consentimento a qualquer momento\n
+        - Solicitar a limitação ou a oposição ao tratamento de seus dados\n\n
+
+        6. COOKIES E TECNOLOGIAS SEMELHANTES\n
+        Utilizamos cookies para proporcionar uma melhor experiência de navegação.\n\n
+
+        7. ALTERAÇÕES DA POLÍTICA\n
+        A Tardigrado se reserva o direito de atualizar esta Política de Privacidade a qualquer momento. A versão vigente é a que se encontrar publicada neste aplicativo junto à data da última alteração.\n\n
+
+        Se tiver quaisquer dúvidas, entre em contato pelo e-mail: privacidade@tardigrado.com.br.
+    </string>
+
+
+    <!-- Termos e Condições de Uso Tardigrado -->
+    <string name="termos_condicoes">
+        <b>TERMOS E CONDIÇÕES DE USO DA TARDIGRADO</b>\n\n
+        **Última atualização: [03/03/2025]**\n\n
+        Seja bem-vindo(a) à Tardigrado!\n
+        Ao usar o nosso aplicativo, você declara que leu, entendeu e aceitou estes Termos e Condições de Uso.\n\n
+
+        1. ACEITAÇÃO DOS TERMOS\n
+        - É maior de 18 anos ou possuir assistência de um responsável\n
+        - É o único responsável pelas atividades que realizar neste aplicativo\n
+        - Compromete-se a usar o aplicativo de acordo com a legislação vigente\n\n
+
+        2. CADASTRO E CONTA\n
+        - É preciso se cadastrar para efetuar uma compra\n
+        - Apenas serão processados os pedidos pagos\n
+        - A Tardigrado se exime de responsabilidades pelo uso não autorizado\n\n
+
+        3. PRODUTOS, PREÇOS E OFERTAS\n
+        - Nossos produtos estão sujeitos à disponibilidade em estoque\n
+        - Os descontos, imagens, especificação e conteúdos estão sujeitos a alteração\n\n
+
+        4. COMPRA, PAGAMENTO E ENTREGA\n
+        - Apenas serão processados os pedidos pagos\n
+        - O prazo de envio é iniciado a partir da confirmação do pagamento\n
+        - A Tardigrado se exime de responsabilidades por eventuais atrasos na entrega\n\n
+
+        5. TROCAS, DEVOLUÇÕES E REEMBOLSOS\n
+        - Apenas serão aceitos produtos nas mesmas condições em que foram enviados\n
+        - O reembolso será realizado pelo mesma forma de pagamento\n\n
+
+        6. PROPRIEDADE INTELECTUAL\n
+        - Todo o conteúdo é de propriedade da Tardigrado\n
+        - É proibida a cópia ou alteração sem prévia permissão\n\n
+
+        7. LIMITAÇÃO DE RESPONSABILIDADE\n
+        A Tardigrado não se responsabiliza por quaisquer dano ou dano indireto\n\n
+
+        8. ALTERAÇÕES DOS TERMOS\n
+        A Tardigrado se reserva o direito de atualizar estes Termos a qualquer momento.\n\n
+
+        9. LEI APLICÁVEL E FORO\n
+        Estes Termos serão regidos pelas leis da República Federativa do Brasil.\n\n
+    </string>
     <string name="textsaturado">Textooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</string>
 </resources>

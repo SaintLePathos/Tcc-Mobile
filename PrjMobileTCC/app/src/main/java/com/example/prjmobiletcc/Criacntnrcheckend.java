@@ -1,6 +1,9 @@
 package com.example.prjmobiletcc;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.TypedValue;
@@ -31,6 +34,9 @@ public class Criacntnrcheckend extends LinearLayout {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 dpToPx(50)));
         txtEndereco.setGravity(Gravity.BOTTOM | Gravity.LEFT);
+        txtEndereco.setTextColor(Color.BLACK);
+        txtEndereco.setTypeface(null, Typeface.BOLD);
+        txtEndereco.setTextSize(18);
         txtEndereco.setText("Endereço de entrega");
         this.addView(txtEndereco);
 
@@ -76,6 +82,8 @@ public class Criacntnrcheckend extends LinearLayout {
                 LinearLayout.LayoutParams.WRAP_CONTENT, dpToPx(40), 1));
         txt2.setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
         txt2.setText("Alterar");
+        txt2.setPaintFlags(txt2.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        txt2.setTextColor(Color.RED);
         lytInterno.addView(txt2);
 
         // TextView inferior

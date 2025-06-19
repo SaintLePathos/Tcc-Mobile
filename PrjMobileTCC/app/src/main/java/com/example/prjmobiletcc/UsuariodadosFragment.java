@@ -53,15 +53,30 @@ public class UsuariodadosFragment extends Fragment {
                 String nome = bdcnx.RS.getString("Nome_Cliente");
                 String email = bdcnx.RS.getString("Email_Cliente");
                 String tel = bdcnx.RS.getString("Telefone_Cliente");
-                txtvcpf.setText(cpf);
+
+                txtvcpf.setText(formatarCPF(cpf));
                 txtvnome.setText(nome);
                 txtvemail.setText(email);
-                txtvtelefone.setText(tel);
+                txtvtelefone.setText(formatarTelefone(tel));
             }else {
                 System.out.println("nao achou o id");
             }
         }catch (Exception ex){
             System.out.println("erro "+ex);
+        }
+    }
+    private static String formatarCPF(String cpf) {
+        return cpf.substring(0,3) + "." + cpf.substring(3,6) + "." + cpf.substring(6,9) + "-" + cpf.substring(9,11);
+    }
+    private static String formatarTelefone(String telefone) {
+        telefone = telefone.replaceAll("\\D", ""); // Remove caracteres não numéricos
+
+        if (telefone.length() == 11) {
+            return "(" + telefone.substring(0, 2) + ") " + telefone.substring(2, 7) + "-" + telefone.substring(7);
+        } else if (telefone.length() == 10) {
+            return "(" + telefone.substring(0, 2) + ") " + telefone.substring(2, 6) + "-" + telefone.substring(6);
+        } else {
+            return "Número inválido";
         }
     }
 }

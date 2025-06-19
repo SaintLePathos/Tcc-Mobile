@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="100dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingLeft="10dp"
@@ -17,21 +17,27 @@
             android:layout_width="match_parent"
             android:layout_height="66dp"
             android:gravity="center"
-            android:text="Detalhes do Pedido" />
+            android:text="Detalhes do Pedido"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtvNumeropedido"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:gravity="bottom|left"
-            android:text="Número do pedido: xxxxxxxxx" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Número do pedido: xxxxxxxxx"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="100dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,7 +94,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="left|center_vertical"
-                        android:text="Valor total: " />
+                        android:text="Valor total: "
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtvValortotalped"
@@ -96,7 +104,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
@@ -114,7 +124,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="left|center_vertical"
-                        android:text="Status: " />
+                        android:text="Status: "
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtvStatusped"
@@ -122,7 +134,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
@@ -140,7 +154,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="left|center_vertical"
-                        android:text="Data do Pedido: " />
+                        android:text="Data do Pedido: "
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtvDataped"
@@ -148,7 +164,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:text="TextView" />
+                        android:text="Sem Data Registrada"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
@@ -166,7 +184,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="left|center_vertical"
-                        android:text="Data de Envio: " />
+                        android:text="Data de Envio: "
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtvDtenvioped"
@@ -174,7 +194,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:text="TextView" />
+                        android:text="Sem Data Registrada"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
@@ -192,7 +214,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="left|center_vertical"
-                        android:text="Data de Entrega: " />
+                        android:text="Data de Entrega: "
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtvDtentregaped"
@@ -200,7 +224,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:text="TextView" />
+                        android:text="Sem Data Registrada"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
@@ -218,7 +244,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="left|center_vertical"
-                        android:text="Endereço de Entrega: " />
+                        android:text="Endereço de Entrega: "
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtvEndentregaped"
@@ -226,7 +254,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="right|center_vertical"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -234,7 +264,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:text="Produto do Pedido" />
+                android:text="Produto do Pedido"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/lytCntnrprodutospedidos"

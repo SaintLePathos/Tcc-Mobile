@@ -131,10 +131,10 @@ public class CheckrevisaoFragment extends Fragment {
                 String nomeusu = bdcnx.RS.getString("Nome_Cliente");
                 String cpfusu = bdcnx.RS.getString("CPF_Cliente");
                 txtvnomeus.setText(nomeusu);
-                txtvcpfus.setText(cpfusu);
+                txtvcpfus.setText(formatarCPF(cpfusu));
 
-
-                Toast.makeText(requireContext(),nomeusu,Toast.LENGTH_SHORT).show();
+                System.out.println(nomeusu);
+                //Toast.makeText(requireContext(),nomeusu,Toast.LENGTH_SHORT).show();
             }
         }catch (SQLException ex){
             System.out.println("Erro checkrevisao" +  ex);
@@ -181,5 +181,8 @@ public class CheckrevisaoFragment extends Fragment {
             System.out.println("Nenhum endereço padrão cadastrado.");
             Toast.makeText(requireContext(), "Escolha um endereço de envio", Toast.LENGTH_SHORT).show();
         }
+    }
+    private static String formatarCPF(String cpf) {
+        return cpf.substring(0,3) + "." + cpf.substring(3,6) + "." + cpf.substring(6,9) + "-" + cpf.substring(9,11);
     }
 }

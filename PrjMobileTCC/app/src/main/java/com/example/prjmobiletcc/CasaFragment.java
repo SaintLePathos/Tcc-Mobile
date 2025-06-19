@@ -40,7 +40,7 @@ public class CasaFragment extends Fragment {
             mudatela();
         }
         criacontainer();
-        crrgImg();
+        //crrgImg();
 
         return ver;
     }

@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="80dp"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="10dp"
@@ -17,16 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="66dp"
             android:gravity="center"
-            android:text="Meus Endereços"
+            android:text="Meus Dados"
+            android:textColor="@color/black"
             android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:gravity="bottom|left"
-            android:text="Seus dados"
-            android:textSize="16sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -35,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
-        android:layout_marginTop="125dp">
+        android:layout_marginTop="80dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,13 +51,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="Nome"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtvClientenome"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@drawable/bordaplaintxt"
+                    android:background="@drawable/borda_arrend_semlinha"
                     android:ems="10"
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
@@ -85,13 +80,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="CPF"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtvClientecpf"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@drawable/bordaplaintxt"
+                    android:background="@drawable/borda_arrend_semlinha"
                     android:ems="10"
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
@@ -112,13 +109,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="E-mail"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtvClientemail"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@drawable/bordaplaintxt"
+                    android:background="@drawable/borda_arrend_semlinha"
                     android:ems="10"
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
@@ -139,13 +138,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="Telefone"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtvClientetelefone"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@drawable/bordaplaintxt"
+                    android:background="@drawable/borda_arrend_semlinha"
                     android:ems="10"
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
@@ -165,7 +166,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
         </LinearLayout>
     </ScrollView>

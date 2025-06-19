@@ -3,6 +3,8 @@ package com.example.prjmobiletcc;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +33,7 @@ public class EnderecocadastroFragment extends Fragment {
         numero = ver.findViewById(R.id.txtbNumero);
         complemento = ver.findViewById(R.id.txtbComplemento);
         btncadastrar = ver.findViewById(R.id.btnCadastraendereco);
-
+        formatacep();
         grdlogin = new Guardalogin(requireContext());
 
         btncadastrar.setOnClickListener(v->cadastroendereco());
@@ -40,7 +42,10 @@ public class EnderecocadastroFragment extends Fragment {
     }
     private void cadastroendereco(){
         String idcliente = grdlogin.getId();
-        String endcep = cep.getText().toString();
+        String cepcomtraco = cep.getText().toString();
+        System.out.println(cepcomtraco);
+        String endcep = cepcomtraco.replace("-", "");  // Remove o traço
+        System.out.println(endcep);
         String endestado = estado.getText().toString();
         String endcidade = cidade.getText().toString();
         String endbairro = bairro.getText().toString();
@@ -48,7 +53,25 @@ public class EnderecocadastroFragment extends Fragment {
         String endnumero = numero.getText().toString();
         String endcomplemento = complemento.getText().toString();
 
-        String sql = "INSERT INTO Endereco_Cliente VALUES(" + idcliente + ",'"+endcep+"','"+endestado+"','"+endcidade+"','"+endbairro+"','"+endrua+"','"+endnumero+"','"+endcomplemento+"');";
+        String sql = "INSERT INTO Endereco_Cliente (" +
+                "Id_Cliente, " +
+                "CEP_Cliente, " +
+                "Estado_Cliente, " +
+                "Cidade_Cliente, " +
+                "Bairro_Cliente, " +
+                "Rua_Cliente, " +
+                "Numero_Cliente, " +
+                "Complemento_Cliente " +
+                ") " +
+                "VALUES(" +
+                "" + idcliente + "," +
+                "'"+endcep+"'," +
+                "'"+endestado+"'," +
+                "'"+endcidade+"'," +
+                "'"+endbairro+"'," +
+                "'"+endrua+"'," +
+                "'"+endnumero+"'," +
+                "'"+endcomplemento+"');";
         try {
             Cnxbd bdcnx = new Cnxbd();
             bdcnx.entBanco(requireContext());
@@ -68,5 +91,29 @@ public class EnderecocadastroFragment extends Fragment {
         mudaFragm.replace(R.id.contFrmnts, fragment);
         mudaFragm.addToBackStack(null);
         mudaFragm.commit();
+    }
+    private void formatacep(){
+        cep.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {}
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String textoFiltrado = s.toString().replaceAll("[^0-9]", ""); // Remove caracteres não numéricos
+
+                if (textoFiltrado.length() > 5) {
+                    textoFiltrado = textoFiltrado.substring(0, 5) + "-" + textoFiltrado.substring(5); // Insere traço
+                }
+
+                if (!textoFiltrado.equals(s.toString())) {
+                    cep.setText(textoFiltrado);
+                    cep.setSelection(textoFiltrado.length()); // Mantém o cursor no final
+                }
+            }
+        });
+
     }
 }

@@ -1,6 +1,7 @@
 package com.example.prjmobiletcc;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
@@ -50,7 +51,7 @@ public class Criacntnr extends LinearLayout {
         nome.setText(R.string.exemplotexto);
         nome.setEllipsize(TextUtils.TruncateAt.END);
         nome.setMaxLines(3);
-        nome.setTextSize(14);
+        nome.setTextSize(16);
 
         valordes = new TextView(context);
         valordes.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT,1));
@@ -96,8 +97,11 @@ public class Criacntnr extends LinearLayout {
             System.out.println(ex);
         }
         nome.setText(nomeP);
-        valor.setText("R$ "+ valorP.replace(".",",") +" a vista NO PIX");
+        valor.setText("R$ "+ valorP.replace(".",",") +" a VISTA");//vista NO PIX
+
+        valordes.setPaintFlags(valordes.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         valordes.setText("de R$ "+valordesconto+" por:");
+
         String valorvzacartao = vlrs.calculacartao(valorP,quantidadedevezesnocartao);
         txt1.setText("em até " + quantidadedevezesnocartao + "x de " + valorvzacartao + " sem juros no cartão");
     }

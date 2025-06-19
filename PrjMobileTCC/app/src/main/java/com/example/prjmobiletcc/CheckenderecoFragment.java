@@ -26,7 +26,7 @@ public class CheckenderecoFragment extends Fragment {
         lytcntnrenvio = ver.findViewById(R.id.lytCktformaenvio);
         lytcntnrresumo = ver.findViewById(R.id.lytCktresumo3);
 
-        btnCheckpagamento.setOnClickListener(v ->mudatela(new CheckpagamentoFragment()));
+        btnCheckpagamento.setOnClickListener(v ->mudatlcheck(new CheckpagamentoFragment()));
         carregamento();
 
         return ver;
@@ -36,14 +36,20 @@ public class CheckenderecoFragment extends Fragment {
         Criacntnrcheckenvio cntenvio = new Criacntnrcheckenvio(requireContext());
         Criacntnrresumo cntresumo = new Criacntnrresumo(requireContext());
         lytcntnrend.removeAllViews();
-        cntenderc.txt2.setOnClickListener(view -> mudatela(new UsuarioenderecoFragment()));
+        cntenderc.txt2.setOnClickListener(view -> mudaend(new UsuarioenderecoFragment()));
         lytcntnrend.addView(cntenderc);
         lytcntnrenvio.removeAllViews();
         lytcntnrenvio.addView(cntenvio);
         lytcntnrresumo.removeAllViews();
         lytcntnrresumo.addView(cntresumo) ;
     }
-    private void mudatela(Fragment fragment){
+    private void mudaend(Fragment fragment){
+        FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
+        mudaFragm.replace(R.id.contFrmnts, fragment);
+        mudaFragm.addToBackStack(null);
+        mudaFragm.commit();
+    }
+    private void mudatlcheck(Fragment fragment){
         Guardalogin guardalogin = new Guardalogin(requireContext());
         if (guardalogin.existeEnderecoPadrao()) {
             System.out.println("Endereço padrão encontrado!");
@@ -53,11 +59,8 @@ public class CheckenderecoFragment extends Fragment {
             mudaFragm.commit();
 
         } else {
+            Toast.makeText(requireContext(),"Endereço padrão não encontrado.", Toast.LENGTH_SHORT).show();
             System.out.println("Nenhum endereço padrão cadastrado.");
-            FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
-            mudaFragm.replace(R.id.contFrmnts, fragment);
-            mudaFragm.addToBackStack(null);
-            mudaFragm.commit();
         }
     }
 
