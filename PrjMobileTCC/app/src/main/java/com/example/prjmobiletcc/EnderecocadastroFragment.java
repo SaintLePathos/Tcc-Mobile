@@ -52,7 +52,11 @@ public class EnderecocadastroFragment extends Fragment {
         String endrua = rua.getText().toString();
         String endnumero = numero.getText().toString();
         String endcomplemento = complemento.getText().toString();
-
+        if (cepcomtraco.isEmpty() || endestado.isEmpty() || endcidade.isEmpty() ||
+                endbairro.isEmpty() || endrua.isEmpty() || endnumero.isEmpty()) {
+            Toast.makeText(requireContext(), "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
         String sql = "INSERT INTO Endereco_Cliente (" +
                 "Id_Cliente, " +
                 "CEP_Cliente, " +
@@ -76,6 +80,7 @@ public class EnderecocadastroFragment extends Fragment {
             Cnxbd bdcnx = new Cnxbd();
             bdcnx.entBanco(requireContext());
             int retorno = bdcnx.stmt.executeUpdate(sql);
+            System.out.println(retorno);
             if (retorno != 0){
                 Toast.makeText(requireContext(),"Endereço adicionado",Toast.LENGTH_SHORT).show();
                 mudatela(new UsuarioenderecoFragment());

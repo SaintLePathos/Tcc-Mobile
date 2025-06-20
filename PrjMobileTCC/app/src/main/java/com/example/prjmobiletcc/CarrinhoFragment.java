@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -25,7 +24,7 @@ public class CarrinhoFragment extends Fragment {
     }
     View ver;
     LinearLayout lytcntnrcarrinnho,lytaviso;
-    Button btnCheckendereco;
+    Button btnCheckendereco,btnaviso;
     ImageButton btnapagarcarrinho;
     TextView nitems;
     @Override
@@ -37,10 +36,12 @@ public class CarrinhoFragment extends Fragment {
         btnapagarcarrinho = ver.findViewById(R.id.btnLimparcarrinho);
         lytaviso = ver.findViewById(R.id.lytAvisocarinho);
         nitems = ver.findViewById(R.id.txtvNumitemscar);
+        btnaviso = ver.findViewById(R.id.btnVerprodutos);
 
         carregacarrinho();
         btnCheckendereco.setOnClickListener(v ->trocatelacheckout());
         btnapagarcarrinho.setOnClickListener(view ->apagarcar());
+        btnaviso.setOnClickListener(view -> mudatlproduto());
         Guardalogin grdlogin = new Guardalogin(requireContext());
 
         if (!grdlogin.loginexpiracao()){
@@ -48,7 +49,13 @@ public class CarrinhoFragment extends Fragment {
         }
         return ver;
     }
-
+    private void mudatlproduto(){
+        ProdutosFragment cntFramg = new ProdutosFragment();
+        FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
+        mudaFragm.replace(R.id.contFrmnts, cntFramg);
+        mudaFragm.addToBackStack(null);
+        mudaFragm.commit();
+    }
     private void mudatela(){
         LoginFragment cntFramg = new LoginFragment();
         FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();

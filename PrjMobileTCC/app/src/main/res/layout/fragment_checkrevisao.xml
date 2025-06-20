@@ -20,6 +20,7 @@
         android:text="Finalizar agora"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/white"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <ScrollView

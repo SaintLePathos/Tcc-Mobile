@@ -65,7 +65,7 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:text="nomecliente"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -94,7 +94,7 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:text="cpfcliente"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -123,7 +123,7 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:text="emailcliente"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -152,7 +152,7 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:text="telefonecliente"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 

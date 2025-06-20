@@ -67,7 +67,6 @@ public class MenuEnderecoFragment extends BottomSheetDialogFragment {
         System.out.println(teste);
         mudatela(new UsuarioenderecoFragment());
         Toast.makeText(requireContext(),"Endereço definico como padrão",Toast.LENGTH_SHORT);
-
     }
     private void mudatela(Fragment fragment){
         FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();

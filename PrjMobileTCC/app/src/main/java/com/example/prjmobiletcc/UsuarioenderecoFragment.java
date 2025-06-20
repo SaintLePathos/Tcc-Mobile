@@ -50,8 +50,9 @@ public class UsuarioenderecoFragment extends Fragment {
         btnnovoend.setOnClickListener(v->mudatela(new EnderecocadastroFragment()));
 
         grdlogin = new Guardalogin(requireContext());
-        carregaenderecopadrao();
         carregamentoend();
+        carregaenderecopadrao();
+
 
         txtvtodosend.setText(numend + " Endereços cadastrados");
 
@@ -69,13 +70,16 @@ public class UsuarioenderecoFragment extends Fragment {
                 "Rua_Cliente, " +
                 "Numero_Cliente, " +
                 "Complemento_Cliente " +
-                " FROM Endereco_Cliente WHERE Id_Endereco_Cliente = " + txt1;
+                " FROM Endereco_Cliente " +
+                "WHERE " +
+                "Visivel = 1" +
+                "AND Id_Endereco_Cliente = " + txt1;
         lytenderecopadrao.removeAllViews();
         try{
             bdcnx.entBanco(requireContext());
             bdcnx.RS = bdcnx.stmt.executeQuery(sql);
             bdcnx.RS.last();
-            numend = bdcnx.RS.getRow();
+            //numend = bdcnx.RS.getRow();
             bdcnx.RS.beforeFirst();
             if(bdcnx.RS.next()){
                 String idenderec = bdcnx.RS.getString("Id_Endereco_Cliente");
@@ -96,6 +100,7 @@ public class UsuarioenderecoFragment extends Fragment {
                 lytsemenderecopadrao.setVisibility(View.GONE);
                 lytenderecopadrao.setVisibility(View.VISIBLE);
             }else{
+                grdlogin.apagarEnderecoPadrao();
                 lytenderecopadrao.setVisibility(View.GONE);
                 lytsemenderecopadrao.setVisibility(View.VISIBLE);
             }
@@ -150,10 +155,20 @@ public class UsuarioenderecoFragment extends Fragment {
                 Criacntnrenderecos criacntnrenderecos = new Criacntnrenderecos(requireContext());
 
                 criacntnrenderecos.inserirdados(estado, cidade, bairro, rua, numero, complemento, cep);
-                String txt = criacntnrenderecos.txtvdetalhesendec.getText().toString();
+                String txtdetalhesende = criacntnrenderecos.txtvdetalhesendec.getText().toString();
 
-                criacntnrenderecos.icmenu.setOnClickListener(view -> abredialog(idenderec, txt));
+                criacntnrenderecos.icmenu.setOnClickListener(view -> abredialog(idenderec, txtdetalhesende));
                 lytcntnrenderecos.addView(criacntnrenderecos);
+                if (numend == 1){
+                    String idexe = idenderec;
+                    grdlogin.definirenderecopadrao(idexe);
+                    String teste = grdlogin.getEnderecopadrao();
+                    System.out.println(idexe);
+                    System.out.println(teste);
+                }
+            }
+            if (numend == 1){
+                System.out.println(numend);
             }
         }catch (SQLException ex){
             System.out.println(ex);

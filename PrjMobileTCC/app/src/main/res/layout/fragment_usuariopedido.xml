@@ -55,7 +55,7 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/btnVerprodutos"
+                    android:id="@+id/btnVercarrinho"
                     android:layout_width="wrap_content"
                     android:layout_height="56dp"
                     android:backgroundTint="@color/cinzatema"

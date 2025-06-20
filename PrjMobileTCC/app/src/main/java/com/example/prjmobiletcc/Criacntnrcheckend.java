@@ -101,21 +101,27 @@ public class Criacntnrcheckend extends LinearLayout {
         try {
             String idendereco;
             Guardalogin grdlogin = new Guardalogin(context);
-            idendereco = grdlogin.getEnderecopadrao().toString();
-            try {
-                Cnxbd bdcnx = new Cnxbd();
-                bdcnx.entBanco(context);
-                bdcnx.RS = bdcnx.stmt.executeQuery("SELECT * FROM Endereco_Cliente WHERE Id_Endereco_Cliente = " + idendereco);
-                if (bdcnx.RS.next()){
-                    String rua = bdcnx.RS.getString("Rua_Cliente");
-                    String num = bdcnx.RS.getString("Numero_Cliente");
-                    String cep = bdcnx.RS.getString("CEP_Cliente");
-                    txt1.setText(rua + ", " + num);
-                    txtInferior.setText(cep);
-
+            Valores vlrs = new Valores();
+            if(grdlogin.existeEnderecoPadrao()){
+                idendereco = grdlogin.getEnderecopadrao().toString();
+                try {
+                    Cnxbd bdcnx = new Cnxbd();
+                    bdcnx.entBanco(context);
+                    bdcnx.RS = bdcnx.stmt.executeQuery("SELECT * FROM Endereco_Cliente WHERE Visivel = 1 AND Id_Endereco_Cliente = " + idendereco);
+                    if (bdcnx.RS.next()){
+                        String rua = bdcnx.RS.getString("Rua_Cliente");
+                        String num = bdcnx.RS.getString("Numero_Cliente");
+                        String cep = bdcnx.RS.getString("CEP_Cliente");
+                        txt1.setText(rua + ", " + num);
+                        txtInferior.setText(vlrs.formatarCep(cep));
+                    }
+                }catch (SQLException ex){
+                    System.out.println("erro na consulta end padrao"+ex);
                 }
-            }catch (SQLException ex){
-                System.out.println("erro na consulta end padrao"+ex);
+            }else{
+                Toast.makeText(context,"Nenhum endereço definido como padrão", Toast.LENGTH_SHORT).show();
+                txt1.setText("Sem endereço");
+                txtInferior.setText("Endereço padrão não definido");
             }
         }catch (Exception e){
             Toast.makeText(context,"Nenhum endereço definido como padrão", Toast.LENGTH_SHORT).show();

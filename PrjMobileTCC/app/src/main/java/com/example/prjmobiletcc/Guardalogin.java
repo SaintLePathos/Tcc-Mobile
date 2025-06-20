@@ -28,6 +28,10 @@ public class Guardalogin {
         editor.putString("idenderecopadrao", idendereco);
         editor.apply();
     }
+    public void apagarEnderecoPadrao() {
+        editor.remove("idenderecopadrao");
+        editor.apply();
+    }
     private void reiniciarcontagem(){
         long tempoexpiracao = System.currentTimeMillis() + (24 * 60 * 60 * 1000);
         editor.putLong("expiracao", tempoexpiracao);

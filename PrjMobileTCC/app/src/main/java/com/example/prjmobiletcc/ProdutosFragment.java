@@ -268,7 +268,8 @@ public class ProdutosFragment extends Fragment {
         mudaFramg.replace(R.id.contFrmnts, detalhesFragm);
         mudaFramg.addToBackStack(null);
         mudaFramg.commit();
-        Toast.makeText(requireContext(), vlrs.idproduto, Toast.LENGTH_SHORT).show();
+        System.out.println(vlrs.idproduto);
+        //Toast.makeText(requireContext(), vlrs.idproduto, Toast.LENGTH_SHORT).show();
     }
     private void abrirefechar(LinearLayout lyt, ImageView icUP, ImageView icDOWN){
         lyt.setVisibility(lyt.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);

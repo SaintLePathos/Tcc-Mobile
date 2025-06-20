@@ -6,12 +6,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 
 public class UsuariopedidoFragment extends Fragment {
     View ver;
     LinearLayout lytcntnrpedido,lytaviso;
+    Button btnaviso;
     Guardalogin grdlogin;
     public UsuariopedidoFragment() {
         // Required empty public constructor
@@ -21,10 +23,17 @@ public class UsuariopedidoFragment extends Fragment {
         ver = inflater.inflate(R.layout.fragment_usuariopedido, container, false);
         lytcntnrpedido = ver.findViewById(R.id.lytCntnrpedido);
         lytaviso = ver.findViewById(R.id.lytAvisocarinho);
+        btnaviso = ver.findViewById(R.id.btnVercarrinho);
 
 
         grdlogin = new Guardalogin(requireContext());
-
+        btnaviso.setOnClickListener(view -> {
+            CarrinhoFragment cntFramg = new CarrinhoFragment();
+            FragmentTransaction mudaFragm = requireActivity().getSupportFragmentManager().beginTransaction();
+            mudaFragm.replace(R.id.contFrmnts, cntFramg);
+            mudaFragm.addToBackStack(null);
+            mudaFragm.commit();
+        });
 
 
         carregamento();
@@ -75,7 +84,6 @@ public class UsuariopedidoFragment extends Fragment {
                 lytcntnrpedido.addView(criacntnrpedidos);
                 lytaviso.setVisibility(View.GONE);
             }
-
         }catch (Exception ex){
 
             System.out.println(ex);

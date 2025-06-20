@@ -89,7 +89,8 @@ public class CasaFragment extends Fragment {
         mudaFramg.replace(R.id.contFrmnts, detalhesFragm);
         mudaFramg.addToBackStack(null);
         mudaFramg.commit();
-        Toast.makeText(requireContext(), vlrs.idproduto, Toast.LENGTH_SHORT).show();
+        System.out.println(vlrs.idproduto);
+        //Toast.makeText(requireContext(), vlrs.idproduto, Toast.LENGTH_SHORT).show();
     }
     private void crrgImg(){
         imgv.setImageDrawable(null);

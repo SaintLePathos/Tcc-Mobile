@@ -28,9 +28,8 @@ public class Criacntnrprodutopedido extends LinearLayout {
                 LinearLayout.LayoutParams.MATCH_PARENT, dpToPx(context, 150));
         lytparams.setMargins(0,0,0,dpToPx(context,10));
         this.setLayoutParams(lytparams);
-
         this.setOrientation(LinearLayout.HORIZONTAL);
-        this.setPadding(dpToPx(context, 20), dpToPx(context, 10), dpToPx(context, 20), dpToPx(context, 10));
+        this.setPadding(dpToPx(context, 20), dpToPx(context, 20), dpToPx(context, 20), dpToPx(context, 20));
 
         // Define o fundo do layout
         Drawable background = ContextCompat.getDrawable(context, R.drawable.borda10);

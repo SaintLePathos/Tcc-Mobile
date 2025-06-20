@@ -64,7 +64,7 @@ public class Criacntnrenderecos extends LinearLayout {
         lytdetalhes.setVisibility(GONE);
 
         txtvdetalhesendec = new TextView(context);
-        LinearLayout.LayoutParams lytadressparams = new LayoutParams(LayoutParams.MATCH_PARENT, dpToPx(100));
+        LinearLayout.LayoutParams lytadressparams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         lytadressparams.setMargins(0,0,0,dpToPx(10));
         txtvdetalhesendec.setLayoutParams(lytadressparams);
         txtvdetalhesendec.setGravity(Gravity.CENTER_VERTICAL);
@@ -119,8 +119,9 @@ public class Criacntnrenderecos extends LinearLayout {
         addView(lytmaisdetalhes);
     }
     public void inserirdados(String estado, String cidade, String bairro, String rua, String numero, String complemento, String cep){
+        Valores vlrs = new Valores();
         txtvtextoenderc.setText(rua + " ," + numero);
-        txtvdetalhesendec.setText(rua + ", " + numero + ", " + bairro + " \n" + cep + "\n" + cidade + ", " + estado + " \n" + complemento);
+        txtvdetalhesendec.setText(rua + ", " + numero + ", " + bairro + " \n" + vlrs.formatarCep(cep) + "\n" + cidade + ", " + estado + " \n" + complemento);
     }
     private void escondetalhes(){
         lytdetalhes.setVisibility(GONE);
