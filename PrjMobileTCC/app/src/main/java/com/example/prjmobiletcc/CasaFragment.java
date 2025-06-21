@@ -53,7 +53,15 @@ public class CasaFragment extends Fragment {
     }
     private void criacontainer(){
         contprodutos.removeAllViews();
-        String sql = "SELECT * FROM Produto";
+        String sql = "SELECT " +
+                "Id_Produto, " +
+                "Nome_Produto, " +
+                "Tamanho_Produto, " +
+                "Tecido_Produto, " +
+                "Cor_Produto, " +
+                "Desconto_Produto, " +
+                "Valor_Produto " +
+                "FROM Produto";
         try{
             bdcnx.entBanco(requireContext());
             bdcnx.RS = bdcnx.stmt.executeQuery(sql);

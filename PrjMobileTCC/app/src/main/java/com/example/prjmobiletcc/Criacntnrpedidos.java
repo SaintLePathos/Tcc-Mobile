@@ -272,7 +272,6 @@ public class Criacntnrpedidos extends LinearLayout {
         return (int) (dp * getContext().getResources().getDisplayMetrics().density);
     }
 
-
     private void escondetalhes(){
         lytdetalhes.setVisibility(GONE);
         lytmaisdetalhes.setVisibility(VISIBLE);
